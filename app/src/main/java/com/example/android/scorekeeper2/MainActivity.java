@@ -12,45 +12,27 @@ import android.widget.ToggleButton;
 
 
 public class MainActivity extends AppCompatActivity {
+
     int strikes = 0;
     int foulball = 0;
-
-//    // Tracks the score for Team A
-//    int scoreTeamA = 0;
-//    int scoreTeamA_In1 = 0;
-//    int scoreTeamA_In2 = 0;
-//    int scoreTeamA_In3 = 0;
-//    int scoreTeamA_In4 = 0;
-//    int scoreTeamA_In5 = 0;
-//    int scoreTeamA_In6 = 0;
-//    int scoreTeamA_In7 = 0;
-//    int scoreTeamA_In8 = 0;
-//    int scoreTeamA_In9 = 0;
-//    int outTeamA = 0;
-//    // Tracks the score for Team B
-//    int scoreTeamB = B.getScoreTeam();
-//    int scoreTeamB_In1 = 0;
-//    int scoreTeamB_In2 = 0;
-//    int scoreTeamB_In3 = 0;
-//    int scoreTeamB_In4 = 0;
-//    int scoreTeamB_In5 = 0;
-//    int scoreTeamB_In6 = 0;
-//    int scoreTeamB_In7 = 0;
-//    int scoreTeamB_In8 = 0;
-//    int scoreTeamB_In9 = 0;
-//    int outTeamB = 0;
     int balls = 0;
     int out = 0;
     int freeRunner = 0;
     int runner = 0;
+
     SoundPool mySound;
     int batterhitId;
     int hbpId;
     int homerunId;
     int youreoutId;
     int strikeId;
+    int strike3Id;
     int ballId;
+    int ball4Id;
     int erroralertId;
+    int toggleId;
+    int foulballId;
+
     private Team A = new Team();
     private Team B = new Team();
     private ToggleButton turnSwitch;
@@ -76,16 +58,24 @@ public class MainActivity extends AppCompatActivity {
             homerunId = mySound.load(this, R.raw.homerun, 1);
             youreoutId = mySound.load(this, R.raw.youreout, 1);
             strikeId = mySound.load(this, R.raw.strike, 1);
+            strike3Id = mySound.load(this, R.raw.strike_three, 1);
             ballId = mySound.load(this, R.raw.ball, 1);
+            ball4Id = mySound.load(this, R.raw.ball_four, 1);
             erroralertId = mySound.load(this, R.raw.erroralert, 1);
+            toggleId = mySound.load(this, R.raw.toggle, 1);
+            foulballId = mySound.load(this, R.raw.foulball, 1);
         } else {
             batterhitId = mySound.load(this, R.raw.batterhit, 1);
             hbpId = mySound.load(this, R.raw.hitbypitch, 1);
             homerunId = mySound.load(this, R.raw.homerun, 1);
             youreoutId = mySound.load(this, R.raw.youreout, 1);
             strikeId = mySound.load(this, R.raw.strike, 1);
+            strike3Id = mySound.load(this, R.raw.strike_three, 1);
             ballId = mySound.load(this, R.raw.ball, 1);
+            ball4Id = mySound.load(this, R.raw.ball_four, 1);
             erroralertId = mySound.load(this, R.raw.erroralert, 1);
+            toggleId = mySound.load(this, R.raw.toggle, 1);
+            foulballId = mySound.load(this, R.raw.foulball, 1);
         }
     }
 
@@ -94,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for the right Team.
      */
     public void addOneToScore(View v) {
-
+        mySound.play(homerunId, 1, 1, 1, 0, 1);
         //check the current state before display on the screen
         if (turnSwitch.isChecked()) {
             B.setScoreTeam(B.getScoreTeam() + 1);
@@ -233,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
                     B.setScoreIn2(0);
                     displayForTeamB(B.getScoreTeam());
                     displayForTeamB_In1(B.getScoreIn1());
-                    displayForTeamB_In2(B.getScoreIn1());
+                    displayForTeamB_In2(B.getScoreIn2());
 
                 }
             }
@@ -413,7 +403,7 @@ public class MainActivity extends AppCompatActivity {
                     A.setScoreIn2(0);
                     displayForTeamA(A.getScoreTeam());
                     displayForTeamA_In1(A.getScoreIn1());
-                    displayForTeamA_In2(A.getScoreIn1());
+                    displayForTeamA_In2(A.getScoreIn2());
 
                 }
             }
@@ -654,11 +644,13 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the plus button is clicked for Strikes.
      */
     public void incrementStrike(View view) {
-        mySound.play(strikeId, 1, 1, 1, 0, 1);
         strikes = strikes + 1;
         displayStrikes(strikes);
+        if (strikes < 3) {
+            mySound.play(strikeId, 1, 1, 1, 0, 1);
+        }
         if (strikes == 3) {
-            mySound.play(youreoutId, 1, 1, 1, 0, 1);
+            mySound.play(strike3Id, 1, 1, 1, 0, 1);
             if (turnSwitch.isChecked()) {
                 B.setOutTeam(B.getOutTeam() + 1);
             } else {
@@ -676,6 +668,7 @@ public class MainActivity extends AppCompatActivity {
             displayBalls(balls);
             displayOut(out);
             if (out == 3) {
+                mySound.play(toggleId, 1, 1, 1, 0, 1);
                 if (turnSwitch.isChecked()) {
                     turnSwitch.setChecked(false);
                 } else {
@@ -721,7 +714,7 @@ public class MainActivity extends AppCompatActivity {
 //     * This method is called when the plus button is clicked for Foul Ball.
 //     */
     public void incrementFoulBall(View view) {
-
+        mySound.play(foulballId, 1, 1, 1, 0, 1);
         foulball = foulball + 1;
         displayFoulball(foulball);
         if (strikes < 2) {
@@ -756,10 +749,13 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the plus button is clicked for Balls.
      */
     public void incrementBall(View view) {
-        mySound.play(ballId, 1, 1, 1, 0, 1);
         balls = balls + 1;
         displayBalls(balls);
+        if (balls < 4) {
+            mySound.play(ballId, 1, 1, 1, 0, 1);
+        }
         if (balls == 4) {
+            mySound.play(ball4Id, 1, 1, 1, 0, 1);
             freeRunner = freeRunner + 1;
             runner = runner + 1;
             displayRunners(runner);
@@ -772,7 +768,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         if (freeRunner == 4) {
-
+            mySound.play(homerunId, 1, 1, 1, 0, 1);
             //check the current state before display on the screen
             if (turnSwitch.isChecked()) {
                 B.setScoreTeam(B.getScoreTeam() + 1);
@@ -910,7 +906,7 @@ public class MainActivity extends AppCompatActivity {
             displayFoulball(foulball);
             displayBalls(balls);
             displayRunners(runner);
-
+            mySound.play(toggleId, 1, 1, 1, 0, 1);
             if (turnSwitch.isChecked()) {
                 turnSwitch.setChecked(false);
             } else {
@@ -953,7 +949,7 @@ public class MainActivity extends AppCompatActivity {
             freeRunner = freeRunner - 1;
             runner = runner - 1;
             displayRunners(runner);
-
+            mySound.play(homerunId, 1, 1, 1, 0, 1);
             //check the current state before display on the screen
             if (turnSwitch.isChecked()) {
                 B.setScoreTeam(B.getScoreTeam() + 1);
