@@ -12,8 +12,8 @@ import android.widget.ToggleButton;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Team A = new Team();
-    private Team B = new Team();
+    int strikes = 0;
+    int foulball = 0;
 
 //    // Tracks the score for Team A
 //    int scoreTeamA = 0;
@@ -39,18 +39,10 @@ public class MainActivity extends AppCompatActivity {
 //    int scoreTeamB_In8 = 0;
 //    int scoreTeamB_In9 = 0;
 //    int outTeamB = 0;
-
-
-    int strikes = 0;
-    int foulball =0;
     int balls = 0;
     int out = 0;
     int freeRunner = 0;
     int runner = 0;
-
-
-    private ToggleButton turnSwitch;
-
     SoundPool mySound;
     int batterhitId;
     int hbpId;
@@ -59,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
     int strikeId;
     int ballId;
     int erroralertId;
+    private Team A = new Team();
+    private Team B = new Team();
+    private ToggleButton turnSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         //set the switch to Team A
         turnSwitch.setChecked(false);
 
-        if (Build.VERSION.SDK_INT >=Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
             mySound = new SoundPool.Builder()
                     .setMaxStreams(10)
@@ -83,20 +78,16 @@ public class MainActivity extends AppCompatActivity {
             strikeId = mySound.load(this, R.raw.strike, 1);
             ballId = mySound.load(this, R.raw.ball, 1);
             erroralertId = mySound.load(this, R.raw.erroralert, 1);
-        }
-        else {
-            batterhitId = mySound.load(this, R.raw.batterhit,1);
-            hbpId = mySound.load(this, R.raw.hitbypitch,1);
-            homerunId = mySound.load(this, R.raw.homerun,1);
-            youreoutId = mySound.load(this, R.raw.youreout,1);
+        } else {
+            batterhitId = mySound.load(this, R.raw.batterhit, 1);
+            hbpId = mySound.load(this, R.raw.hitbypitch, 1);
+            homerunId = mySound.load(this, R.raw.homerun, 1);
+            youreoutId = mySound.load(this, R.raw.youreout, 1);
             strikeId = mySound.load(this, R.raw.strike, 1);
             ballId = mySound.load(this, R.raw.ball, 1);
             erroralertId = mySound.load(this, R.raw.erroralert, 1);
         }
     }
-
-
-
 
 
     /**
@@ -112,35 +103,35 @@ public class MainActivity extends AppCompatActivity {
                 B.setScoreIn1(B.getScoreTeam());
                 displayForTeamB_In1(B.getScoreIn1());
             }
-            if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)){
-                B.setScoreIn2(B.getScoreTeam()- B.getScoreIn1());
+            if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
+                B.setScoreIn2(B.getScoreTeam() - B.getScoreIn1());
                 displayForTeamB_In2(B.getScoreIn2());
             }
-            if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)){
+            if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
                 B.setScoreIn3(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2());
                 displayForTeamB_In3(B.getScoreIn3());
             }
-            if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)){
-                B.setScoreIn4(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() );
+            if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
+                B.setScoreIn4(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3());
                 displayForTeamB_In4(B.getScoreIn4());
             }
-            if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)){
-                B.setScoreIn5(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() );
+            if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
+                B.setScoreIn5(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4());
                 displayForTeamB_In5(B.getScoreIn5());
             }
-            if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)){
-                B.setScoreIn6(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() );
+            if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
+                B.setScoreIn6(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5());
                 displayForTeamB_In6(B.getScoreIn6());
             }
-            if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)){
-                B.setScoreIn7(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() );
+            if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
+                B.setScoreIn7(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6());
                 displayForTeamB_In7(B.getScoreIn7());
             }
-            if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)){
-                B.setScoreIn8(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6()  - B.getScoreIn7());
+            if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
+                B.setScoreIn8(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() - B.getScoreIn7());
                 displayForTeamB_In8(B.getScoreIn8());
             }
-            if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)){
+            if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
                 B.setScoreIn9(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() - B.getScoreIn8());
                 displayForTeamB_In9(B.getScoreIn9());
             }
@@ -152,35 +143,35 @@ public class MainActivity extends AppCompatActivity {
                 A.setScoreIn1(A.getScoreTeam());
                 displayForTeamA_In1(A.getScoreIn1());
             }
-            if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)){
+            if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
                 A.setScoreIn2(A.getScoreTeam() - A.getScoreIn1());
                 displayForTeamA_In2(A.getScoreIn2());
             }
-            if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)){
+            if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
                 A.setScoreIn3(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2());
                 displayForTeamA_In3(A.getScoreIn3());
             }
-            if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)){
+            if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
                 A.setScoreIn4(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3());
                 displayForTeamA_In4(A.getScoreIn4());
             }
-            if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)){
+            if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
                 A.setScoreIn5(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4());
                 displayForTeamA_In5(A.getScoreIn5());
             }
-            if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)){
+            if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
                 A.setScoreIn6(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5());
                 displayForTeamA_In6(A.getScoreIn6());
             }
-            if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)){
+            if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
                 A.setScoreIn7(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6());
                 displayForTeamA_In7(A.getScoreIn7());
             }
-            if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)){
+            if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
                 A.setScoreIn8(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6() - A.getScoreIn7());
                 displayForTeamA_In8(A.getScoreIn8());
             }
-            if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)){
+            if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
                 A.setScoreIn9(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6() - A.getScoreIn7() - A.getScoreIn8());
                 displayForTeamA_In9(A.getScoreIn9());
             }
@@ -188,8 +179,7 @@ public class MainActivity extends AppCompatActivity {
         if (runner <= 0) {
             runner = 0;
             displayRunners(runner);
-        }
-        else {
+        } else {
             runner = runner - 1;
             displayRunners(runner);
         }
@@ -217,7 +207,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-
             if (B.getOutTeam() < 3) {
                 B.setScoreIn1(B.getScoreTeam());
                 displayForTeamB_In1(B.getScoreIn1());
@@ -232,12 +221,12 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-            if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)){
-                B.setScoreIn2(B.getScoreTeam()- B.getScoreIn1());
+            if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
+                B.setScoreIn2(B.getScoreTeam() - B.getScoreIn1());
                 displayForTeamB_In2(B.getScoreIn2());
-            if (B.getScoreIn2() <= 0) {
+                if (B.getScoreIn2() <= 0) {
                     //Show an error message as Toast
-                mySound.play(erroralertId, 1, 1, 1, 0, 1);
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn1(B.getScoreTeam());
@@ -248,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)){
+            if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
                 B.setScoreIn3(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2());
                 displayForTeamB_In3(B.getScoreIn3());
                 if (B.getScoreIn3() <= 0) {
@@ -264,8 +253,8 @@ public class MainActivity extends AppCompatActivity {
                     displayForTeamB_In2(B.getScoreIn2());
                 }
             }
-            if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)){
-                B.setScoreIn4(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() );
+            if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
+                B.setScoreIn4(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3());
                 displayForTeamB_In4(B.getScoreIn4());
                 if (B.getScoreIn4() <= 0) {
                     //Show an error message as Toast
@@ -281,8 +270,8 @@ public class MainActivity extends AppCompatActivity {
                     displayForTeamB_In3(B.getScoreIn3());
                 }
             }
-            if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)){
-                B.setScoreIn5(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() );
+            if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
+                B.setScoreIn5(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4());
                 displayForTeamB_In5(B.getScoreIn5());
                 if (B.getScoreIn5() <= 0) {
                     //Show an error message as Toast
@@ -300,8 +289,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)){
-                B.setScoreIn6(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() );
+            if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
+                B.setScoreIn6(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5());
                 displayForTeamB_In6(B.getScoreIn6());
                 if (B.getScoreIn6() <= 0) {
                     //Show an error message as Toast
@@ -319,8 +308,8 @@ public class MainActivity extends AppCompatActivity {
                     displayForTeamB_In5(B.getScoreIn5());
                 }
             }
-            if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)){
-                B.setScoreIn7(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() );
+            if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
+                B.setScoreIn7(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6());
                 displayForTeamB_In7(B.getScoreIn7());
                 if (B.getScoreIn7() <= 0) {
                     //Show an error message as Toast
@@ -340,8 +329,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)){
-                B.setScoreIn8(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6()  - B.getScoreIn7());
+            if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
+                B.setScoreIn8(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() - B.getScoreIn7());
                 displayForTeamB_In8(B.getScoreIn8());
                 if (B.getScoreIn8() <= 0) {
                     //Show an error message as Toast
@@ -362,7 +351,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)){
+            if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
                 B.setScoreIn9(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() - B.getScoreIn8());
                 if (B.getScoreIn9() <= 0) {
                     //Show an error message as Toast
@@ -412,8 +401,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-            if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)){
-                A.setScoreIn2(A.getScoreTeam()- A.getScoreIn1());
+            if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
+                A.setScoreIn2(A.getScoreTeam() - A.getScoreIn1());
                 displayForTeamA_In2(A.getScoreIn2());
                 if (A.getScoreIn2() <= 0) {
                     //Show an error message as Toast
@@ -428,7 +417,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)){
+            if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
                 A.setScoreIn3(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2());
                 displayForTeamA_In3(A.getScoreIn3());
                 if (A.getScoreIn3() <= 0) {
@@ -444,8 +433,8 @@ public class MainActivity extends AppCompatActivity {
                     displayForTeamA_In2(A.getScoreIn2());
                 }
             }
-            if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)){
-                A.setScoreIn4(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() );
+            if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
+                A.setScoreIn4(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3());
                 displayForTeamA_In4(A.getScoreIn4());
                 if (A.getScoreIn4() <= 0) {
                     //Show an error message as Toast
@@ -461,8 +450,8 @@ public class MainActivity extends AppCompatActivity {
                     displayForTeamA_In3(A.getScoreIn3());
                 }
             }
-            if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)){
-                A.setScoreIn5(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() );
+            if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
+                A.setScoreIn5(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4());
                 displayForTeamA_In5(A.getScoreIn5());
                 if (A.getScoreIn5() <= 0) {
                     //Show an error message as Toast
@@ -480,8 +469,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)){
-                A.setScoreIn6(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() );
+            if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
+                A.setScoreIn6(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5());
                 displayForTeamA_In6(A.getScoreIn6());
                 if (A.getScoreIn6() <= 0) {
                     //Show an error message as Toast
@@ -499,8 +488,8 @@ public class MainActivity extends AppCompatActivity {
                     displayForTeamA_In5(A.getScoreIn5());
                 }
             }
-            if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)){
-                A.setScoreIn7(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6() );
+            if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
+                A.setScoreIn7(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6());
                 displayForTeamA_In7(A.getScoreIn7());
                 if (A.getScoreIn7() <= 0) {
                     //Show an error message as Toast
@@ -520,8 +509,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)){
-                A.setScoreIn8(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6()  - A.getScoreIn7());
+            if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
+                A.setScoreIn8(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6() - A.getScoreIn7());
                 displayForTeamA_In8(A.getScoreIn8());
                 if (A.getScoreIn8() <= 0) {
                     //Show an error message as Toast
@@ -542,7 +531,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)){
+            if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
                 A.setScoreIn9(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6() - A.getScoreIn8());
                 displayForTeamA_In9(A.getScoreIn9());
                 if (A.getScoreIn9() <= 0) {
@@ -564,8 +553,8 @@ public class MainActivity extends AppCompatActivity {
                     displayForTeamA_In8(A.getScoreIn8());
                 }
             }
-            }
         }
+    }
 
 
     /**
@@ -583,35 +572,35 @@ public class MainActivity extends AppCompatActivity {
                 B.setScoreIn1(B.getScoreIn1() + runner + 1);
                 displayForTeamB_In1(B.getScoreIn1());
             }
-            if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)){
+            if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
                 B.setScoreIn2(B.getScoreIn2() + runner + 1);
                 displayForTeamB_In2(B.getScoreIn2());
             }
-            if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)){
+            if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
                 B.setScoreIn3(B.getScoreIn3() + runner + 1);
                 displayForTeamB_In3(B.getScoreIn3());
             }
-            if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)){
+            if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
                 B.setScoreIn4(B.getScoreIn4() + runner + 1);
                 displayForTeamB_In4(B.getScoreIn4());
             }
-            if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)){
+            if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
                 B.setScoreIn5(B.getScoreIn5() + runner + 1);
                 displayForTeamB_In5(B.getScoreIn5());
             }
-            if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)){
+            if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
                 B.setScoreIn6(B.getScoreIn6() + runner + 1);
                 displayForTeamB_In6(B.getScoreIn6());
             }
-            if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)){
+            if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
                 B.setScoreIn7(B.getScoreIn7() + runner + 1);
                 displayForTeamB_In7(B.getScoreIn7());
             }
-            if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)){
+            if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
                 B.setScoreIn8(B.getScoreIn8() + runner + 1);
                 displayForTeamB_In8(B.getScoreIn8());
             }
-            if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)){
+            if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
                 B.setScoreIn9(B.getScoreIn9() + runner + 1);
                 displayForTeamB_In9(B.getScoreIn9());
             }
@@ -622,35 +611,35 @@ public class MainActivity extends AppCompatActivity {
                 A.setScoreIn1(A.getScoreIn1() + runner + 1);
                 displayForTeamA_In1(A.getScoreIn1());
             }
-            if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)){
+            if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
                 A.setScoreIn2(A.getScoreIn2() + runner + 1);
                 displayForTeamA_In2(A.getScoreIn2());
             }
-            if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)){
+            if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
                 A.setScoreIn3(A.getScoreIn3() + runner + 1);
                 displayForTeamA_In3(A.getScoreIn3());
             }
-            if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)){
+            if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
                 A.setScoreIn4(A.getScoreIn4() + runner + 1);
                 displayForTeamA_In4(A.getScoreIn4());
             }
-            if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)){
+            if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
                 A.setScoreIn5(A.getScoreIn5() + runner + 1);
                 displayForTeamA_In5(A.getScoreIn5());
             }
-            if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)){
+            if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
                 A.setScoreIn6(A.getScoreIn6() + runner + 1);
                 displayForTeamA_In6(A.getScoreIn6());
             }
-            if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)){
+            if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
                 A.setScoreIn7(A.getScoreIn7() + runner + 1);
                 displayForTeamA_In7(A.getScoreIn7());
             }
-            if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)){
+            if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
                 A.setScoreIn8(A.getScoreIn8() + runner + 1);
                 displayForTeamA_In8(A.getScoreIn8());
             }
-            if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)){
+            if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
                 A.setScoreIn9(A.getScoreIn9() + runner + 1);
                 displayForTeamA_In9(A.getScoreIn9());
             }
@@ -671,9 +660,9 @@ public class MainActivity extends AppCompatActivity {
         if (strikes == 3) {
             mySound.play(youreoutId, 1, 1, 1, 0, 1);
             if (turnSwitch.isChecked()) {
-                B.setOutTeam(B.getOutTeam()+ 1);
+                B.setOutTeam(B.getOutTeam() + 1);
             } else {
-                A.setOutTeam(A.getOutTeam()+ 1);
+                A.setOutTeam(A.getOutTeam() + 1);
             }
 //            //Show an error message as Toast
 //            Toast.makeText(this, "You cannot have more than 3 Strikes", Toast.LENGTH_SHORT).show();
@@ -793,7 +782,7 @@ public class MainActivity extends AppCompatActivity {
                     displayForTeamB_In1(B.getScoreIn1());
                 }
                 if (B.getOutTeam() < 6) {
-                    B.setScoreIn2(B.getScoreTeam()- B.getScoreIn1());
+                    B.setScoreIn2(B.getScoreTeam() - B.getScoreIn1());
                     displayForTeamB_In2(B.getScoreIn2());
                 }
                 if (B.getOutTeam() < 9) {
@@ -801,23 +790,23 @@ public class MainActivity extends AppCompatActivity {
                     displayForTeamB_In3(B.getScoreIn3());
                 }
                 if (B.getOutTeam() < 12) {
-                    B.setScoreIn4(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() );
+                    B.setScoreIn4(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3());
                     displayForTeamB_In4(B.getScoreIn4());
                 }
                 if (B.getOutTeam() < 15) {
-                    B.setScoreIn5(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() );
+                    B.setScoreIn5(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4());
                     displayForTeamB_In5(B.getScoreIn5());
                 }
                 if (B.getOutTeam() < 18) {
-                    B.setScoreIn6(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() );
+                    B.setScoreIn6(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5());
                     displayForTeamB_In6(B.getScoreIn6());
                 }
                 if (B.getOutTeam() < 21) {
-                    B.setScoreIn7(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() );
+                    B.setScoreIn7(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6());
                     displayForTeamB_In7(B.getScoreIn7());
                 }
                 if (B.getOutTeam() < 24) {
-                    B.setScoreIn8(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6()  - B.getScoreIn7());
+                    B.setScoreIn8(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() - B.getScoreIn7());
                     displayForTeamB_In8(B.getScoreIn8());
                 }
                 if (B.getOutTeam() < 27) {
@@ -867,7 +856,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
             runner = runner - 1;
-            freeRunner = freeRunner -1;
+            freeRunner = freeRunner - 1;
             displayRunners(runner);
         }
     }
@@ -963,7 +952,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (freeRunner == 4) {
             freeRunner = freeRunner - 1;
-            runner = runner -1;
+            runner = runner - 1;
             displayRunners(runner);
 
             //check the current state before display on the screen
@@ -974,35 +963,35 @@ public class MainActivity extends AppCompatActivity {
                     B.setScoreIn1(B.getScoreTeam());
                     displayForTeamB_In1(B.getScoreIn1());
                 }
-                if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)){
-                    B.setScoreIn2(B.getScoreTeam()- B.getScoreIn1());
+                if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
+                    B.setScoreIn2(B.getScoreTeam() - B.getScoreIn1());
                     displayForTeamB_In2(B.getScoreIn2());
                 }
-                if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)){
+                if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
                     B.setScoreIn3(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2());
                     displayForTeamB_In3(B.getScoreIn3());
                 }
-                if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)){
-                    B.setScoreIn4(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() );
+                if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
+                    B.setScoreIn4(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3());
                     displayForTeamB_In4(B.getScoreIn4());
                 }
-                if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)){
-                    B.setScoreIn5(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() );
+                if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
+                    B.setScoreIn5(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4());
                     displayForTeamB_In5(B.getScoreIn5());
                 }
-                if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)){
-                    B.setScoreIn6(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() );
+                if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
+                    B.setScoreIn6(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5());
                     displayForTeamB_In6(B.getScoreIn6());
                 }
-                if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)){
-                    B.setScoreIn7(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() );
+                if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
+                    B.setScoreIn7(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6());
                     displayForTeamB_In7(B.getScoreIn7());
                 }
-                if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)){
-                    B.setScoreIn8(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6()  - B.getScoreIn7());
+                if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
+                    B.setScoreIn8(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() - B.getScoreIn7());
                     displayForTeamB_In8(B.getScoreIn8());
                 }
-                if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)){
+                if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
                     B.setScoreIn9(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() - B.getScoreIn8());
                     displayForTeamB_In9(B.getScoreIn9());
                 }
@@ -1014,35 +1003,35 @@ public class MainActivity extends AppCompatActivity {
                     A.setScoreIn1(A.getScoreTeam());
                     displayForTeamA_In1(A.getScoreIn1());
                 }
-                if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)){
-                    A.setScoreIn2(A.getScoreTeam()- A.getScoreIn1());
+                if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
+                    A.setScoreIn2(A.getScoreTeam() - A.getScoreIn1());
                     displayForTeamA_In2(A.getScoreIn2());
                 }
-                if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)){
+                if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
                     A.setScoreIn3(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2());
                     displayForTeamA_In3(A.getScoreIn3());
                 }
-                if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)){
-                    A.setScoreIn4(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() );
+                if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
+                    A.setScoreIn4(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3());
                     displayForTeamA_In4(A.getScoreIn4());
                 }
-                if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)){
-                    A.setScoreIn5(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() );
+                if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
+                    A.setScoreIn5(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4());
                     displayForTeamA_In5(A.getScoreIn5());
                 }
-                if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)){
-                    A.setScoreIn6(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() );
+                if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
+                    A.setScoreIn6(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5());
                     displayForTeamA_In6(A.getScoreIn6());
                 }
-                if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)){
-                    A.setScoreIn7(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6() );
+                if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
+                    A.setScoreIn7(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6());
                     displayForTeamA_In7(A.getScoreIn7());
                 }
-                if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)){
-                    A.setScoreIn8(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6()  - A.getScoreIn7());
+                if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
+                    A.setScoreIn8(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6() - A.getScoreIn7());
                     displayForTeamA_In8(A.getScoreIn8());
                 }
-                if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)){
+                if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
                     A.setScoreIn9(A.getScoreTeam() - A.getScoreIn1() - A.getScoreIn2() - A.getScoreIn3() - A.getScoreIn4() - A.getScoreIn5() - A.getScoreIn6() - A.getScoreIn8());
                     displayForTeamA_In9(A.getScoreIn9());
                 }
@@ -1075,7 +1064,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method to RESET.
      */
-    public void reset (View v) {
+    public void reset(View v) {
         A.setScoreTeam(0);
         displayForTeamA(A.getScoreTeam());
         A.setScoreIn1(0);
@@ -1124,7 +1113,7 @@ public class MainActivity extends AppCompatActivity {
 
         strikes = 0;
         displayStrikes(strikes);
-        foulball =0;
+        foulball = 0;
         displayFoulball(foulball);
         balls = 0;
         displayBalls(balls);
