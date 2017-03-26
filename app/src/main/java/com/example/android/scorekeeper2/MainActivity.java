@@ -1,5 +1,8 @@
 package com.example.android.scorekeeper2;
 
+import android.content.pm.ActivityInfo;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -48,9 +51,18 @@ public class MainActivity extends AppCompatActivity {
 
     private ToggleButton turnSwitch;
 
+    SoundPool mySound;
+    int batterhitId;
+    int hbpId;
+    int homerunId;
+    int youreoutId;
+    int strikeId;
+    int ballId;
+    int erroralertId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -58,6 +70,29 @@ public class MainActivity extends AppCompatActivity {
         //set the switch to Team A
         turnSwitch.setChecked(false);
 
+        if (Build.VERSION.SDK_INT >=Build.VERSION_CODES.LOLLIPOP) {
+
+            mySound = new SoundPool.Builder()
+                    .setMaxStreams(10)
+                    .build();
+
+            batterhitId = mySound.load(this, R.raw.batterhit, 1);
+            hbpId = mySound.load(this, R.raw.hitbypitch, 1);
+            homerunId = mySound.load(this, R.raw.homerun, 1);
+            youreoutId = mySound.load(this, R.raw.youreout, 1);
+            strikeId = mySound.load(this, R.raw.strike, 1);
+            ballId = mySound.load(this, R.raw.ball, 1);
+            erroralertId = mySound.load(this, R.raw.erroralert, 1);
+        }
+        else {
+            batterhitId = mySound.load(this, R.raw.batterhit,1);
+            hbpId = mySound.load(this, R.raw.hitbypitch,1);
+            homerunId = mySound.load(this, R.raw.homerun,1);
+            youreoutId = mySound.load(this, R.raw.youreout,1);
+            strikeId = mySound.load(this, R.raw.strike, 1);
+            ballId = mySound.load(this, R.raw.ball, 1);
+            erroralertId = mySound.load(this, R.raw.erroralert, 1);
+        }
     }
 
 
@@ -173,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
             displayForTeamB(B.getScoreTeam());
             if (B.getScoreTeam() <= 0) {
                 //Show an error message as Toast
+                mySound.play(erroralertId, 1, 1, 1, 0, 1);
                 Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                 //exit this method early
                 B.setScoreTeam(0);
@@ -187,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamB_In1(B.getScoreIn1());
                 if (B.getScoreIn1() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn1(0);
@@ -200,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamB_In2(B.getScoreIn2());
             if (B.getScoreIn2() <= 0) {
                     //Show an error message as Toast
+                mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn1(B.getScoreTeam());
@@ -215,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamB_In3(B.getScoreIn3());
                 if (B.getScoreIn3() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn3(0);
@@ -230,6 +269,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamB_In4(B.getScoreIn4());
                 if (B.getScoreIn4() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn4(0);
@@ -246,6 +286,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamB_In5(B.getScoreIn5());
                 if (B.getScoreIn5() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn5(0);
@@ -264,6 +305,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamB_In6(B.getScoreIn6());
                 if (B.getScoreIn6() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn6(0);
@@ -282,6 +324,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamB_In7(B.getScoreIn7());
                 if (B.getScoreIn7() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn7(0);
@@ -302,6 +345,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamB_In8(B.getScoreIn8());
                 if (B.getScoreIn8() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn8(0);
@@ -322,6 +366,7 @@ public class MainActivity extends AppCompatActivity {
                 B.setScoreIn9(B.getScoreTeam() - B.getScoreIn1() - B.getScoreIn2() - B.getScoreIn3() - B.getScoreIn4() - B.getScoreIn5() - B.getScoreIn6() - B.getScoreIn8());
                 if (B.getScoreIn9() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setScoreIn9(0);
@@ -344,6 +389,7 @@ public class MainActivity extends AppCompatActivity {
             displayForTeamA(A.getScoreTeam());
             if (A.getScoreTeam() <= 0) {
                 //Show an error message as Toast
+                mySound.play(erroralertId, 1, 1, 1, 0, 1);
                 Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                 //exit this method early
                 A.setScoreTeam(0);
@@ -357,6 +403,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In1(A.getScoreIn1());
                 if (A.getScoreIn1() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setScoreIn1(0);
@@ -370,6 +417,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In2(A.getScoreIn2());
                 if (A.getScoreIn2() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setScoreIn1(A.getScoreTeam());
@@ -385,6 +433,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In3(A.getScoreIn3());
                 if (A.getScoreIn3() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setScoreIn3(0);
@@ -400,6 +449,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In4(A.getScoreIn4());
                 if (A.getScoreIn4() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setScoreIn4(0);
@@ -416,6 +466,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In5(A.getScoreIn5());
                 if (A.getScoreIn5() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setScoreIn5(0);
@@ -434,6 +485,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In6(A.getScoreIn6());
                 if (A.getScoreIn6() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setScoreIn6(0);
@@ -452,6 +504,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In7(A.getScoreIn7());
                 if (A.getScoreIn7() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setScoreIn7(0);
@@ -472,6 +525,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In8(A.getScoreIn8());
                 if (A.getScoreIn8() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setScoreIn8(0);
@@ -493,6 +547,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In9(A.getScoreIn9());
                 if (A.getScoreIn9() <= 0) {
                     //Show an error message as Toast
+                    mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setScoreIn9(0);
@@ -517,6 +572,9 @@ public class MainActivity extends AppCompatActivity {
      * Increase the score for homeruns to right Team.
      */
     public void homerun(View v) {
+        mySound.play(batterhitId, 1, 1, 1, 0, 1);
+        mySound.play(homerunId, 1, 1, 1, 0, 1);
+
         //check the current state before we display the screen
         if (turnSwitch.isChecked()) {
             B.setScoreTeam(B.getScoreTeam() + runner + 1);
@@ -607,10 +665,11 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the plus button is clicked for Strikes.
      */
     public void incrementStrike(View view) {
-
+        mySound.play(strikeId, 1, 1, 1, 0, 1);
         strikes = strikes + 1;
         displayStrikes(strikes);
         if (strikes == 3) {
+            mySound.play(youreoutId, 1, 1, 1, 0, 1);
             if (turnSwitch.isChecked()) {
                 B.setOutTeam(B.getOutTeam()+ 1);
             } else {
@@ -660,6 +719,7 @@ public class MainActivity extends AppCompatActivity {
         displayStrikes(strikes);
         if (strikes <= 0) {
             //Show an error message as Toast
+            mySound.play(erroralertId, 1, 1, 1, 0, 1);
             Toast.makeText(this, "You cannot have less than 0 Strikes", Toast.LENGTH_SHORT).show();
             //exit this method early
             strikes = 0;
@@ -693,6 +753,7 @@ public class MainActivity extends AppCompatActivity {
         displayFoulball(foulball);
         if (foulball <= 0) {
             //Show an error message as Toast
+            mySound.play(erroralertId, 1, 1, 1, 0, 1);
             Toast.makeText(this, "You cannot have less than 0 Foul Ball", Toast.LENGTH_SHORT).show();
             //exit this method early
             foulball = 0;
@@ -706,7 +767,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the plus button is clicked for Balls.
      */
     public void incrementBall(View view) {
-
+        mySound.play(ballId, 1, 1, 1, 0, 1);
         balls = balls + 1;
         displayBalls(balls);
         if (balls == 4) {
@@ -819,6 +880,7 @@ public class MainActivity extends AppCompatActivity {
         displayBalls(balls);
         if (balls <= 0) {
             //Show an error message as Toast
+            mySound.play(erroralertId, 1, 1, 1, 0, 1);
             Toast.makeText(this, "You cannot have less than 0 Balls", Toast.LENGTH_SHORT).show();
             //exit this method early
             balls = 0;
@@ -830,6 +892,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the plus button is clicked for Out.
      */
     public void incrementOut(View view) {
+        mySound.play(youreoutId, 1, 1, 1, 0, 1);
         out = out + 1;
         runner = runner - 1;
         freeRunner = freeRunner - 1;
@@ -877,6 +940,7 @@ public class MainActivity extends AppCompatActivity {
         displayOut(out);
         if (out <= 0) {
             //Show an error message as Toast
+            mySound.play(erroralertId, 1, 1, 1, 0, 1);
             Toast.makeText(this, "You cannot have less than 0 Out", Toast.LENGTH_SHORT).show();
             //exit this method early
             out = 0;
@@ -888,7 +952,7 @@ public class MainActivity extends AppCompatActivity {
      * Method to calculate Free Bases.
      */
     public void freeRunner(View v) {
-
+        mySound.play(hbpId, 1, 1, 1, 0, 1);
         freeRunner = freeRunner + 1;
         runner = runner + 1;
         displayRunners(runner);
@@ -993,7 +1057,7 @@ public class MainActivity extends AppCompatActivity {
      * Method to calculate men on Bases.
      */
     public void runner(View v) {
-
+        mySound.play(batterhitId, 1, 1, 1, 0, 1);
         runner = runner + 1;
         displayRunners(runner);
         strikes = 0;
