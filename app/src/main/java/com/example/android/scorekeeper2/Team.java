@@ -7,7 +7,7 @@ package com.example.android.scorekeeper2;
 public class Team {
 
     private int scoreTeam;
-//    private int scoreIn1;
+    //    private int scoreIn1;
 //    private int scoreIn2;
 //    private int scoreIn3;
 //    private int scoreIn4;
@@ -25,16 +25,6 @@ public class Team {
         this.active = active;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-
-
     public Team() {
         scoreTeam = 0;
 //        scoreIn1 = 0;
@@ -51,11 +41,19 @@ public class Team {
         inningScore = new int[9];
     }
 
-    public void setInningScore(int index, int score){
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setInningScore(int index, int score) {
         inningScore[index] = score;
     }
 
-    public int getInningScore(int index)    {
+    public int getInningScore(int index) {
         return inningScore[index];
 
     }
@@ -147,8 +145,6 @@ public class Team {
     public void setOutTeam(int outTeam) {
         this.outTeam = outTeam;
     }
-
-
 
 
 }

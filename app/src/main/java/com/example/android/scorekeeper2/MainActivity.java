@@ -96,35 +96,35 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamB_In1(B.getInningScore(0));
             }
             if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
-                B.setInningScore(1,B.getScoreTeam() - B.getInningScore(0));
+                B.setInningScore(1, B.getScoreTeam() - B.getInningScore(0));
                 displayForTeamB_In2(B.getInningScore(1));
             }
             if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
-                B.setInningScore(2,B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1));
+                B.setInningScore(2, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1));
                 displayForTeamB_In3(B.getInningScore(2));
             }
             if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
-                B.setInningScore(3,B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2));
+                B.setInningScore(3, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2));
                 displayForTeamB_In4(B.getInningScore(3));
             }
             if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
-                B.setInningScore(4,B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3));
+                B.setInningScore(4, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3));
                 displayForTeamB_In5(B.getInningScore(4));
             }
             if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
-                B.setInningScore(5,B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4));
+                B.setInningScore(5, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4));
                 displayForTeamB_In6(B.getInningScore(5));
             }
             if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
-                B.setInningScore(6,B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5));
+                B.setInningScore(6, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5));
                 displayForTeamB_In7(B.getInningScore(6));
             }
             if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
-                B.setInningScore(7,B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5) - B.getInningScore(6));
+                B.setInningScore(7, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5) - B.getInningScore(6));
                 displayForTeamB_In8(B.getInningScore(7));
             }
             if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
-                B.setInningScore(8,B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5) - B.getInningScore(6) - B.getInningScore(7));
+                B.setInningScore(8, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5) - B.getInningScore(6) - B.getInningScore(7));
                 displayForTeamB_In9(B.getInningScore(8));
             }
 
@@ -136,11 +136,11 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In1(A.getInningScore(0));
             }
             if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
-                A.setInningScore(1,A.getScoreTeam() - A.getInningScore(0));
+                A.setInningScore(1, A.getScoreTeam() - A.getInningScore(0));
                 displayForTeamA_In2(A.getInningScore(1));
             }
             if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
-                A.setInningScore(2,A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1));
+                A.setInningScore(2, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1));
                 displayForTeamA_In3(A.getInningScore(2));
             }
             if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
@@ -148,11 +148,11 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In4(A.getInningScore(3));
             }
             if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
-                A.setInningScore(4,A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3));
+                A.setInningScore(4, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3));
                 displayForTeamA_In5(A.getInningScore(4));
             }
             if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
-                A.setInningScore(5,A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4));
+                A.setInningScore(5, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4));
                 displayForTeamA_In6(A.getInningScore(5));
             }
             if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
@@ -160,11 +160,11 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA_In7(A.getInningScore(6));
             }
             if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
-                A.setInningScore(7,A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5) - A.getInningScore(6));
+                A.setInningScore(7, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5) - A.getInningScore(6));
                 displayForTeamA_In8(A.getInningScore(7));
             }
             if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
-                A.setInningScore(8,A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5) - A.getInningScore(6) - A.getInningScore(7));
+                A.setInningScore(8, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5) - A.getInningScore(6) - A.getInningScore(7));
                 displayForTeamA_In9(A.getInningScore(8));
             }
         }
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
             if (B.getScoreTeam() <= 0) {
                 //Show an error message as Toast
                 mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                 //exit this method early
                 B.setScoreTeam(0);
                 displayForTeamB(B.getScoreTeam());
@@ -205,9 +205,9 @@ public class MainActivity extends AppCompatActivity {
                 if (B.getInningScore(0) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
-                    B.setInningScore(0 , 0);
+                    B.setInningScore(0, 0);
                     displayForTeamB_In1(B.getInningScore(0));
 
                 }
@@ -219,9 +219,9 @@ public class MainActivity extends AppCompatActivity {
                 if (B.getInningScore(1) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
-                    B.setInningScore(0 , B.getScoreTeam());
+                    B.setInningScore(0, B.getScoreTeam());
                     B.setInningScore(1, 0);
                     displayForTeamB(B.getScoreTeam());
                     displayForTeamB_In1(B.getInningScore(0));
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
                 if (B.getInningScore(2) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(2, 0);
                     displayForTeamB_In3(B.getInningScore(2));
@@ -251,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
                 if (B.getInningScore(3) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(3, 0);
                     displayForTeamB_In4(B.getInningScore(3));
@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
                 if (B.getInningScore(4) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(4, 0);
                     displayForTeamB_In5(B.getInningScore(4));
@@ -287,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
                 if (B.getInningScore(5) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(5, 0);
                     displayForTeamB_In6(B.getInningScore(5));
@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
                 if (B.getInningScore(6) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(6, 0);
                     displayForTeamB_In7(B.getInningScore(6));
@@ -327,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
                 if (B.getInningScore(7) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(7, 0);
                     displayForTeamB_In8(B.getInningScore(7));
@@ -348,7 +348,7 @@ public class MainActivity extends AppCompatActivity {
                 if (B.getInningScore(8) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(8, 0);
                     displayForTeamB_In9(B.getInningScore(8));
@@ -371,7 +371,7 @@ public class MainActivity extends AppCompatActivity {
             if (A.getScoreTeam() <= 0) {
                 //Show an error message as Toast
                 mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                 //exit this method early
                 A.setScoreTeam(0);
                 displayForTeamA(A.getScoreTeam());
@@ -380,14 +380,14 @@ public class MainActivity extends AppCompatActivity {
 
 
             if (A.getOutTeam() < 3) {
-                A.setInningScore(0 , A.getScoreTeam());
+                A.setInningScore(0, A.getScoreTeam());
                 displayForTeamA_In1(A.getInningScore(0));
                 if (A.getInningScore(0) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
-                    A.setInningScore(0 , 0);
+                    A.setInningScore(0, 0);
                     displayForTeamA_In1(A.getInningScore(0));
 
                 }
@@ -399,9 +399,9 @@ public class MainActivity extends AppCompatActivity {
                 if (A.getInningScore(1) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
-                    A.setInningScore(0 , A.getScoreTeam());
+                    A.setInningScore(0, A.getScoreTeam());
                     A.setInningScore(1, 0);
                     displayForTeamA(A.getScoreTeam());
                     displayForTeamA_In1(A.getInningScore(0));
@@ -415,7 +415,7 @@ public class MainActivity extends AppCompatActivity {
                 if (A.getInningScore(2) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(2, 0);
                     displayForTeamA_In3(A.getInningScore(2));
@@ -431,7 +431,7 @@ public class MainActivity extends AppCompatActivity {
                 if (A.getInningScore(3) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(3, 0);
                     displayForTeamA_In4(A.getInningScore(3));
@@ -448,7 +448,7 @@ public class MainActivity extends AppCompatActivity {
                 if (A.getInningScore(4) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(4, 0);
                     displayForTeamA_In5(A.getInningScore(4));
@@ -467,7 +467,7 @@ public class MainActivity extends AppCompatActivity {
                 if (A.getInningScore(5) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(5, 0);
                     displayForTeamA_In6(A.getInningScore(5));
@@ -486,7 +486,7 @@ public class MainActivity extends AppCompatActivity {
                 if (A.getInningScore(6) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(6, 0);
                     displayForTeamA_In7(A.getInningScore(6));
@@ -507,7 +507,7 @@ public class MainActivity extends AppCompatActivity {
                 if (A.getInningScore(7) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(7, 0);
                     displayForTeamA_In8(A.getInningScore(7));
@@ -529,7 +529,7 @@ public class MainActivity extends AppCompatActivity {
                 if (A.getInningScore(8) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
-                    Toast.makeText(this, "You cannot have less than 0 as Score", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(8, 0);
                     displayForTeamA_In9(A.getInningScore(8));
@@ -561,7 +561,7 @@ public class MainActivity extends AppCompatActivity {
             B.setScoreTeam(B.getScoreTeam() + runner + 1);
             displayForTeamB(B.getScoreTeam());
             if (B.getOutTeam() < 3) {
-                B.setInningScore(0 , B.getInningScore(0) + runner + 1);
+                B.setInningScore(0, B.getInningScore(0) + runner + 1);
                 displayForTeamB_In1(B.getInningScore(0));
             }
             if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
@@ -600,7 +600,7 @@ public class MainActivity extends AppCompatActivity {
             A.setScoreTeam(A.getScoreTeam() + runner + 1);
             displayForTeamA(A.getScoreTeam());
             if (A.getOutTeam() < 3) {
-                A.setInningScore(0 , A.getInningScore(0) + runner + 1);
+                A.setInningScore(0, A.getInningScore(0) + runner + 1);
                 displayForTeamA_In1(A.getInningScore(0));
             }
             if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
@@ -698,7 +698,7 @@ public class MainActivity extends AppCompatActivity {
         if (strikes <= 0) {
             //Show an error message as Toast
             mySound.play(erroralertId, 1, 1, 1, 0, 1);
-            Toast.makeText(this, "You cannot have less than 0 Strikes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.Toast2), Toast.LENGTH_SHORT).show();
             //exit this method early
             strikes = 0;
             displayStrikes(strikes);
@@ -734,7 +734,7 @@ public class MainActivity extends AppCompatActivity {
         if (foulball <= 0) {
             //Show an error message as Toast
             mySound.play(erroralertId, 1, 1, 1, 0, 1);
-            Toast.makeText(this, "You cannot have less than 0 Foul Ball", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.Toast3), Toast.LENGTH_SHORT).show();
             //exit this method early
             foulball = 0;
             strikes = 0;
@@ -742,7 +742,6 @@ public class MainActivity extends AppCompatActivity {
             displayStrikes(strikes);
         }
     }
-
 
     /**
      * This method is called when the plus button is clicked for Balls.
@@ -773,7 +772,7 @@ public class MainActivity extends AppCompatActivity {
                 B.setScoreTeam(B.getScoreTeam() + 1);
                 displayForTeamB(B.getScoreTeam());
                 if (B.getOutTeam() < 3) {
-                    B.setInningScore(0 , B.getInningScore(0) + 1);
+                    B.setInningScore(0, B.getInningScore(0) + 1);
                     displayForTeamB_In1(B.getInningScore(0));
                 }
                 if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
@@ -812,7 +811,7 @@ public class MainActivity extends AppCompatActivity {
                 A.setScoreTeam(A.getScoreTeam() + 1);
                 displayForTeamA(A.getScoreTeam());
                 if (A.getOutTeam() < 3) {
-                    A.setInningScore(0 , A.getInningScore(0) + 1);
+                    A.setInningScore(0, A.getInningScore(0) + 1);
                     displayForTeamA_In1(A.getInningScore(0));
                 }
                 if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
@@ -864,7 +863,7 @@ public class MainActivity extends AppCompatActivity {
         if (balls <= 0) {
             //Show an error message as Toast
             mySound.play(erroralertId, 1, 1, 1, 0, 1);
-            Toast.makeText(this, "You cannot have less than 0 Balls", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.Toast4), Toast.LENGTH_SHORT).show();
             //exit this method early
             balls = 0;
             displayBalls(balls);
@@ -924,7 +923,7 @@ public class MainActivity extends AppCompatActivity {
         if (out <= 0) {
             //Show an error message as Toast
             mySound.play(erroralertId, 1, 1, 1, 0, 1);
-            Toast.makeText(this, "You cannot have less than 0 Out", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.Toast5), Toast.LENGTH_SHORT).show();
             //exit this method early
             out = 0;
             displayOut(out);
@@ -954,7 +953,7 @@ public class MainActivity extends AppCompatActivity {
                 B.setScoreTeam(B.getScoreTeam() + 1);
                 displayForTeamB(B.getScoreTeam());
                 if (B.getOutTeam() < 3) {
-                    B.setInningScore(0 , B.getInningScore(0) + 1);
+                    B.setInningScore(0, B.getInningScore(0) + 1);
                     displayForTeamB_In1(B.getInningScore(0));
                 }
                 if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
@@ -993,7 +992,7 @@ public class MainActivity extends AppCompatActivity {
                 A.setScoreTeam(A.getScoreTeam() + 1);
                 displayForTeamA(A.getScoreTeam());
                 if (A.getOutTeam() < 3) {
-                    A.setInningScore(0 , A.getInningScore(0) + 1);
+                    A.setInningScore(0, A.getInningScore(0) + 1);
                     displayForTeamA_In1(A.getInningScore(0));
                 }
                 if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
@@ -1034,7 +1033,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     /**
      * Method to calculate men on Bases.
      */
@@ -1051,16 +1049,36 @@ public class MainActivity extends AppCompatActivity {
             runner = 0;
             displayRunners(runner);
         }
-
     }
 
-    /**
-     * Method to RESET.
-     */
+//    public void winnerIs(View v) {
+//        if ((A.getOutTeam() == 27) && (B.getOutTeam() == 27)) {
+//            if (A.getScoreTeam() > B.getScoreTeam()) {
+//                // A is the Winner
+//                Toast.makeText(this, "THE WINNER IS TEAM A", Toast.LENGTH_SHORT).show();
+//                //exit this method early
+//            } else {
+//                // B is the Winner
+//                Toast.makeText(this, "THE WINNER IS TEAM B", Toast.LENGTH_SHORT).show();
+//                //exit this method early
+//            }
+//            if (A.getScoreTeam() == B.getScoreTeam()){
+//                // There is no Winner yet
+//                Toast.makeText(this, "Afetr 9 Innings there is not yet a winner. This App unfortunately don't support EXTRA Innings.", Toast.LENGTH_SHORT).show();
+//                //exit this method early
+//            }
+//
+//        }
+//    }
+
+        /**
+         * Method to RESET.
+         */
+
     public void reset(View v) {
         A.setScoreTeam(0);
         displayForTeamA(A.getScoreTeam());
-        A.setInningScore(0 , 0);
+        A.setInningScore(0, 0);
         displayForTeamA_In1(A.getInningScore(0));
         A.setInningScore(1, 0);
         displayForTeamA_In2(A.getInningScore(1));
@@ -1081,7 +1099,7 @@ public class MainActivity extends AppCompatActivity {
         // Tracks the score for Team B
         B.setScoreTeam(0);
         displayForTeamB(B.getScoreTeam());
-        B.setInningScore(0 , 0);
+        B.setInningScore(0, 0);
         displayForTeamB_In1(B.getInningScore(0));
         B.setInningScore(1, 0);
         displayForTeamB_In2(B.getInningScore(1));

@@ -26,4 +26,9 @@
     <string name="eight">8</string>
     <string name="nine">9</string>
     <string name="content">Versus logo</string>
+    <string name="Toast1">You cannot have less than 0 as Score</string>
+    <string name="Toast2">You cannot have less than 0 Strikes</string>
+    <string name="Toast3">You cannot have less than 0 Foul Balls</string>
+    <string name="Toast4">You cannot have less than 0 Balls</string>
+    <string name="Toast5">You cannot have less than 0 Out</string>
 </resources>
