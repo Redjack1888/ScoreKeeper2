@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     int erroralertId;
     int toggleId;
     int foulballId;
+    int chargeId;
+    int resetId;
 
     private Team A = new Team();
     private Team B = new Team();
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
             erroralertId = mySound.load(this, R.raw.erroralert, 1);
             toggleId = mySound.load(this, R.raw.toggle, 1);
             foulballId = mySound.load(this, R.raw.foulball, 1);
+            chargeId = mySound.load(this, R.raw.charge, 1);
+            resetId = mySound.load(this, R.raw.fizzle, 1);
         } else {
             batterhitId = mySound.load(this, R.raw.batterhit, 1);
             hbpId = mySound.load(this, R.raw.hitbypitch, 1);
@@ -78,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             erroralertId = mySound.load(this, R.raw.erroralert, 1);
             toggleId = mySound.load(this, R.raw.toggle, 1);
             foulballId = mySound.load(this, R.raw.foulball, 1);
+            chargeId = mySound.load(this, R.raw.charge, 1);
         }
     }
 
@@ -679,19 +684,25 @@ public class MainActivity extends AppCompatActivity {
                     turnSwitch.setChecked(true);
                     if (A.getScoreTeam() != B.getScoreTeam()) {
                         if (A.getScoreTeam() > B.getScoreTeam()) {
+                            mySound.play(chargeId, 1, 1, 1, 0, 1);
                             // A is the Winner
                             Toast.makeText(this, getString(R.string.WinnerA), Toast.LENGTH_LONG).show();
                             //exit this method early
+
                         } else {
+                            mySound.play(chargeId, 1, 1, 1, 0, 1);
                             // B is the Winner
                             Toast.makeText(this, getString(R.string.WinnerB), Toast.LENGTH_LONG).show();
                             //exit this method early
+
                         }
                     }
                     if (A.getScoreTeam() == B.getScoreTeam()) {
+                        mySound.play(chargeId, 1, 1, 1, 0, 1);
                         // There is no Winner yet
                         Toast.makeText(this, getString(R.string.NoWinner), Toast.LENGTH_LONG).show();
                         //exit this method early
+
                     }
                 }
                 out = 0;
@@ -933,16 +944,19 @@ public class MainActivity extends AppCompatActivity {
                 turnSwitch.setChecked(true);
                 if (A.getScoreTeam() != B.getScoreTeam()) {
                     if (A.getScoreTeam() > B.getScoreTeam()) {
+                        mySound.play(chargeId, 1, 1, 1, 0, 1);
                         // A is the Winner
                         Toast.makeText(this, getString(R.string.WinnerA), Toast.LENGTH_LONG).show();
                         //exit this method early
                     } else {
+                        mySound.play(chargeId, 1, 1, 1, 0, 1);
                         // B is the Winner
                         Toast.makeText(this, getString(R.string.WinnerB), Toast.LENGTH_LONG).show();
                         //exit this method early
                     }
                 }
                 if (A.getScoreTeam() == B.getScoreTeam()) {
+                    mySound.play(chargeId, 1, 1, 1, 0, 1);
                     // There is no Winner yet
                     Toast.makeText(this, getString(R.string.NoWinner), Toast.LENGTH_LONG).show();
                     //exit this method early
@@ -1114,6 +1128,7 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void reset(View v) {
+        mySound.play(resetId, 1, 1, 1, 0, 1);
         A.setScoreTeam(0);
         displayForTeamA(A.getScoreTeam());
         A.setInningScore(0, 0);
