@@ -757,21 +757,14 @@ public class MainActivity extends AppCompatActivity {
     public void decrementFoulball(View view) {
         foulball = foulball - 1;
         displayFoulball(foulball);
-        if (foulball < 2) {
-            strikes = foulball;
-            displayStrikes(strikes);
-            displayFoulball(foulball);
-        }
         if (foulball <= 0) {
             //Show an error message as Toast
             mySound.play(erroralertId, 1, 1, 1, 0, 1);
             Toast.makeText(this, getString(R.string.Toast3), Toast.LENGTH_SHORT).show();
             //exit this method early
             foulball = 0;
-            strikes = 0;
             displayFoulball(foulball);
-            displayStrikes(strikes);
-        }
+            }
     }
 
     /**
