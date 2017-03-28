@@ -1,5 +1,6 @@
 package com.example.android.scorekeeper2;
 
+import android.annotation.TargetApi;
 import android.content.pm.ActivityInfo;
 import android.media.SoundPool;
 import android.os.Build;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ToggleButton turnSwitch;
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
@@ -764,7 +766,7 @@ public class MainActivity extends AppCompatActivity {
             //exit this method early
             foulball = 0;
             displayFoulball(foulball);
-            }
+        }
     }
 
     /**
