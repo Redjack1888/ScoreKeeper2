@@ -675,6 +675,25 @@ public class MainActivity extends AppCompatActivity {
                     turnSwitch.setChecked(true);
                 }
 
+                if (B.getOutTeam() == 27) {
+                    turnSwitch.setChecked(true);
+                    if (A.getScoreTeam() != B.getScoreTeam()) {
+                        if (A.getScoreTeam() > B.getScoreTeam()) {
+                            // A is the Winner
+                            Toast.makeText(this, getString(R.string.WinnerA), Toast.LENGTH_LONG).show();
+                            //exit this method early
+                        } else {
+                            // B is the Winner
+                            Toast.makeText(this, getString(R.string.WinnerB), Toast.LENGTH_LONG).show();
+                            //exit this method early
+                        }
+                    }
+                    if (A.getScoreTeam() == B.getScoreTeam()) {
+                        // There is no Winner yet
+                        Toast.makeText(this, getString(R.string.NoWinner), Toast.LENGTH_LONG).show();
+                        //exit this method early
+                    }
+                }
                 out = 0;
                 strikes = 0;
                 foulball = 0;
@@ -683,10 +702,11 @@ public class MainActivity extends AppCompatActivity {
                 displayStrikes(strikes);
                 displayBalls(balls);
                 displayFoulball(foulball);
-
             }
 
+
         }
+
     }
 
     /**
@@ -763,7 +783,6 @@ public class MainActivity extends AppCompatActivity {
             displayFoulball(foulball);
             balls = 0;
             displayBalls(balls);
-
         }
         if (freeRunner == 4) {
             mySound.play(homerunId, 1, 1, 1, 0, 1);
@@ -910,13 +929,32 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 turnSwitch.setChecked(true);
             }
+            if (B.getOutTeam() == 27) {
+                turnSwitch.setChecked(true);
+                if (A.getScoreTeam() != B.getScoreTeam()) {
+                    if (A.getScoreTeam() > B.getScoreTeam()) {
+                        // A is the Winner
+                        Toast.makeText(this, getString(R.string.WinnerA), Toast.LENGTH_LONG).show();
+                        //exit this method early
+                    } else {
+                        // B is the Winner
+                        Toast.makeText(this, getString(R.string.WinnerB), Toast.LENGTH_LONG).show();
+                        //exit this method early
+                    }
+                }
+                if (A.getScoreTeam() == B.getScoreTeam()) {
+                    // There is no Winner yet
+                    Toast.makeText(this, getString(R.string.NoWinner), Toast.LENGTH_LONG).show();
+                    //exit this method early
+                }
+            }
         }
-
     }
 
     /**
      * This method is called when the minus button is clicked for Out.
      */
+
     public void decrementOut(View view) {
         out = out - 1;
         displayOut(out);
@@ -1052,28 +1090,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
 //    public void winnerIs(View v) {
-//        if ((A.getOutTeam() == 27) && (B.getOutTeam() == 27)) {
+//        if (B.getOutTeam() == 27)) {
 //            if (A.getScoreTeam() > B.getScoreTeam()) {
 //                // A is the Winner
-//                Toast.makeText(this, "THE WINNER IS TEAM A", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "THE WINNER IS TEAM A", Toast.LENGTH_LONG).show();
 //                //exit this method early
 //            } else {
 //                // B is the Winner
-//                Toast.makeText(this, "THE WINNER IS TEAM B", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "THE WINNER IS TEAM B", Toast.LENGTH_LONG).show();
 //                //exit this method early
 //            }
 //            if (A.getScoreTeam() == B.getScoreTeam()){
 //                // There is no Winner yet
-//                Toast.makeText(this, "Afetr 9 Innings there is not yet a winner. This App unfortunately don't support EXTRA Innings.", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Afetr 9 Innings there is not yet a winner. This App unfortunately don't support EXTRA Innings.", Toast.LENGTH_LONG).show();
 //                //exit this method early
 //            }
 //
 //        }
 //    }
 
-        /**
-         * Method to RESET.
-         */
+    /**
+     * Method to RESET.
+     */
 
     public void reset(View v) {
         A.setScoreTeam(0);

@@ -31,4 +31,7 @@
     <string name="Toast3">You cannot have less than 0 Foul Balls</string>
     <string name="Toast4">You cannot have less than 0 Balls</string>
     <string name="Toast5">You cannot have less than 0 Out</string>
+    <string name="WinnerA">THE WINNER IS TEAM A</string>
+    <string name="WinnerB">THE WINNER IS TEAM B</string>
+    <string name="NoWinner">After 9 Innings THERE IS NOT A WINNER yet.\n\nThis App unfortunately don\'t support EXTRA Innings.</string>
 </resources>
