@@ -1089,6 +1089,8 @@ public class MainActivity extends AppCompatActivity {
         displayRunners(runner);
         strikes = 0;
         displayStrikes(strikes);
+        foulball = 0;
+        displayFoulball(foulball);
         balls = 0;
         displayBalls(balls);
 
