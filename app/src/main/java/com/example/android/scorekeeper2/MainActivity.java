@@ -1100,26 +1100,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    public void winnerIs(View v) {
-//        if (B.getOutTeam() == 27)) {
-//            if (A.getScoreTeam() > B.getScoreTeam()) {
-//                // A is the Winner
-//                Toast.makeText(this, "THE WINNER IS TEAM A", Toast.LENGTH_LONG).show();
-//                //exit this method early
-//            } else {
-//                // B is the Winner
-//                Toast.makeText(this, "THE WINNER IS TEAM B", Toast.LENGTH_LONG).show();
-//                //exit this method early
-//            }
-//            if (A.getScoreTeam() == B.getScoreTeam()){
-//                // There is no Winner yet
-//                Toast.makeText(this, "Afetr 9 Innings there is not yet a winner. This App unfortunately don't support EXTRA Innings.", Toast.LENGTH_LONG).show();
-//                //exit this method early
-//            }
-//
-//        }
-//    }
-
     /**
      * Method to RESET.
      */
