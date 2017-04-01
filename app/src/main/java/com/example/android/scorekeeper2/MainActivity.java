@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private Team A = new Team();
     private Team B = new Team();
     private ToggleButton turnSwitch;
-    private TextView A_Total, A_In1, A_In2, A_In3, A_In4, A_In5, A_In6, A_In7, A_In8, A_In9, B_Total, B_In1, B_In2, B_In3, B_In4, B_In5, B_In6, B_In7, B_In8, B_In9, strikeView, foulballView, ballView, outView, runnerView;
+    private TextView totalScoreA, scoreInning1TeamA, scoreInning2TeamA, scoreInning3TeamA, scoreInning4TeamA, scoreInning5TeamA, scoreInning6TeamA, scoreInning7TeamA, scoreInning8TeamA, scoreInning9TeamA, totalScoreB, scoreInning1TeamB, scoreInning2TeamB, scoreInning3TeamB, scoreInning4TeamB, scoreInning5TeamB, scoreInning6TeamB, scoreInning7TeamB, scoreInning8TeamB, scoreInning9TeamB, strikeView, foulballView, ballView, outView, runnerView;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
@@ -54,26 +54,26 @@ public class MainActivity extends AppCompatActivity {
         //set the switch to Team A
         turnSwitch.setChecked(false);
 
-        A_Total = (TextView) findViewById(team_a_score);
-        A_In1 = (TextView) findViewById(R.id.in1a);
-        A_In2 = (TextView) findViewById(R.id.in2a);
-        A_In3 = (TextView) findViewById(R.id.in3a);
-        A_In4 = (TextView) findViewById(R.id.in4a);
-        A_In5 = (TextView) findViewById(R.id.in5a);
-        A_In6 = (TextView) findViewById(R.id.in6a);
-        A_In7 = (TextView) findViewById(R.id.in7a);
-        A_In8 = (TextView) findViewById(R.id.in8a);
-        A_In9 = (TextView) findViewById(R.id.in9a);
-        B_Total = (TextView) findViewById(R.id.team_b_score);
-        B_In1 = (TextView) findViewById(R.id.in1b);
-        B_In2 = (TextView) findViewById(R.id.in2b);
-        B_In3 = (TextView) findViewById(R.id.in3b);
-        B_In4 = (TextView) findViewById(R.id.in4b);
-        B_In5 = (TextView) findViewById(R.id.in5b);
-        B_In6 = (TextView) findViewById(R.id.in6b);
-        B_In7 = (TextView) findViewById(R.id.in7b);
-        B_In8 = (TextView) findViewById(R.id.in8b);
-        B_In9 = (TextView) findViewById(R.id.in9b);
+        totalScoreA = (TextView) findViewById(team_a_score);
+        scoreInning1TeamA = (TextView) findViewById(R.id.in1a);
+        scoreInning2TeamA = (TextView) findViewById(R.id.in2a);
+        scoreInning3TeamA = (TextView) findViewById(R.id.in3a);
+        scoreInning4TeamA = (TextView) findViewById(R.id.in4a);
+        scoreInning5TeamA = (TextView) findViewById(R.id.in5a);
+        scoreInning6TeamA = (TextView) findViewById(R.id.in6a);
+        scoreInning7TeamA = (TextView) findViewById(R.id.in7a);
+        scoreInning8TeamA = (TextView) findViewById(R.id.in8a);
+        scoreInning9TeamA = (TextView) findViewById(R.id.in9a);
+        totalScoreB = (TextView) findViewById(R.id.team_b_score);
+        scoreInning1TeamB = (TextView) findViewById(R.id.in1b);
+        scoreInning2TeamB = (TextView) findViewById(R.id.in2b);
+        scoreInning3TeamB = (TextView) findViewById(R.id.in3b);
+        scoreInning4TeamB = (TextView) findViewById(R.id.in4b);
+        scoreInning5TeamB = (TextView) findViewById(R.id.in5b);
+        scoreInning6TeamB = (TextView) findViewById(R.id.in6b);
+        scoreInning7TeamB = (TextView) findViewById(R.id.in7b);
+        scoreInning8TeamB = (TextView) findViewById(R.id.in8b);
+        scoreInning9TeamB = (TextView) findViewById(R.id.in9b);
         strikeView = (TextView) findViewById(R.id.strike_number);
         foulballView = (TextView) findViewById(R.id.foulball_number);
         ballView = (TextView) findViewById(R.id.ball_number);
@@ -119,81 +119,81 @@ public class MainActivity extends AppCompatActivity {
         //check the current state before display on the screen
         if (turnSwitch.isChecked()) {
             B.setScoreTeam(B.getScoreTeam() + 1);
-            displayScore(B.getScoreTeam(), B_Total);
+            displayScore(B.getScoreTeam(), totalScoreB);
             if (B.getOutTeam() < 3) {
                 B.setInningScore(0, B.getScoreTeam());
-                displayScore(B.getInningScore(0), B_In1);
+                displayScore(B.getInningScore(0), scoreInning1TeamB);
             }
             if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
                 B.setInningScore(1, B.getScoreTeam() - B.getInningScore(0));
-                displayScore(B.getInningScore(1), B_In2);
+                displayScore(B.getInningScore(1), scoreInning2TeamB);
             }
             if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
                 B.setInningScore(2, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1));
-                displayScore(B.getInningScore(2), B_In3);
+                displayScore(B.getInningScore(2), scoreInning3TeamB);
             }
             if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
                 B.setInningScore(3, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2));
-                displayScore(B.getInningScore(3), B_In4);
+                displayScore(B.getInningScore(3), scoreInning4TeamB);
             }
             if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
                 B.setInningScore(4, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3));
-                displayScore(B.getInningScore(4), B_In5);
+                displayScore(B.getInningScore(4), scoreInning5TeamB);
             }
             if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
                 B.setInningScore(5, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4));
-                displayScore(B.getInningScore(5), B_In6);
+                displayScore(B.getInningScore(5), scoreInning6TeamB);
             }
             if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
                 B.setInningScore(6, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5));
-                displayScore(B.getInningScore(6), B_In7);
+                displayScore(B.getInningScore(6), scoreInning7TeamB);
             }
             if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
                 B.setInningScore(7, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5) - B.getInningScore(6));
-                displayScore(B.getInningScore(7), B_In8);
+                displayScore(B.getInningScore(7), scoreInning8TeamB);
             }
             if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
                 B.setInningScore(8, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5) - B.getInningScore(6) - B.getInningScore(7));
-                displayScore(B.getInningScore(8), B_In9);
+                displayScore(B.getInningScore(8), scoreInning9TeamB);
             }
         } else {
             A.setScoreTeam(A.getScoreTeam() + 1);
-            displayScore(A.getScoreTeam(), A_Total);
+            displayScore(A.getScoreTeam(), totalScoreA);
             if (A.getOutTeam() < 3) {
                 A.setInningScore(0, A.getScoreTeam());
-                displayScore(A.getInningScore(0), A_In1);
+                displayScore(A.getInningScore(0), scoreInning1TeamA);
             }
             if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
                 A.setInningScore(1, A.getScoreTeam() - A.getInningScore(0));
-                displayScore(A.getInningScore(1), A_In2);
+                displayScore(A.getInningScore(1), scoreInning2TeamA);
             }
             if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
                 A.setInningScore(2, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1));
-                displayScore(A.getInningScore(2), A_In3);
+                displayScore(A.getInningScore(2), scoreInning3TeamA);
             }
             if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
                 A.setInningScore(3, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2));
-                displayScore(A.getInningScore(3), A_In4);
+                displayScore(A.getInningScore(3), scoreInning4TeamA);
             }
             if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
                 A.setInningScore(4, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3));
-                displayScore(A.getInningScore(4), A_In5);
+                displayScore(A.getInningScore(4), scoreInning5TeamA);
             }
             if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
                 A.setInningScore(5, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4));
-                displayScore(A.getInningScore(5), A_In6);
+                displayScore(A.getInningScore(5), scoreInning6TeamA);
             }
             if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
                 A.setInningScore(6, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5));
-                displayScore(A.getInningScore(6), A_In7);
+                displayScore(A.getInningScore(6), scoreInning7TeamA);
             }
             if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
                 A.setInningScore(7, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5) - A.getInningScore(6));
-                displayScore(A.getInningScore(7), A_In8);
+                displayScore(A.getInningScore(7), scoreInning8TeamA);
             }
             if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
                 A.setInningScore(8, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5) - A.getInningScore(6) - A.getInningScore(7));
-                displayScore(A.getInningScore(8), A_In9);
+                displayScore(A.getInningScore(8), scoreInning9TeamA);
             }
         }
         if (runner <= 0) {
@@ -215,30 +215,30 @@ public class MainActivity extends AppCompatActivity {
     public void delOneToScore(View v) {
         if (turnSwitch.isChecked()) {
             B.setScoreTeam(B.getScoreTeam() - 1);
-            displayScore(B.getScoreTeam(), B_Total);
+            displayScore(B.getScoreTeam(), totalScoreB);
             if (B.getScoreTeam() <= 0) {
                 //Show an error message as Toast
                 mySound.play(erroralertId, 1, 1, 1, 0, 1);
                 Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                 //exit this method early
                 B.setScoreTeam(0);
-                displayScore(B.getScoreTeam(), B_Total);
+                displayScore(B.getScoreTeam(), totalScoreB);
             }
             if (B.getOutTeam() < 3) {
                 B.setInningScore(0, B.getScoreTeam());
-                displayScore(B.getInningScore(0), B_In1);
+                displayScore(B.getInningScore(0), scoreInning1TeamB);
                 if (B.getInningScore(0) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(0, 0);
-                    displayScore(B.getInningScore(0), B_In1);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
                 }
             }
             if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
                 B.setInningScore(1, B.getScoreTeam() - B.getInningScore(0));
-                displayScore(B.getInningScore(1), B_In2);
+                displayScore(B.getInningScore(1), scoreInning2TeamB);
                 if (B.getInningScore(1) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
@@ -246,120 +246,120 @@ public class MainActivity extends AppCompatActivity {
                     //exit this method early
                     B.setInningScore(0, B.getScoreTeam());
                     B.setInningScore(1, 0);
-                    displayScore(B.getScoreTeam(), B_Total);
-                    displayScore(B.getInningScore(0), B_In1);
-                    displayScore(B.getInningScore(1), B_In2);
+                    displayScore(B.getScoreTeam(), totalScoreB);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
                 }
             }
             if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
                 B.setInningScore(2, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1));
-                displayScore(B.getInningScore(2), B_In3);
+                displayScore(B.getInningScore(2), scoreInning3TeamB);
                 if (B.getInningScore(2) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(2, 0);
-                    displayScore(B.getInningScore(2), B_In3);
+                    displayScore(B.getInningScore(2), scoreInning3TeamB);
                     B.setScoreTeam(B.getInningScore(0) + B.getInningScore(0));
-                    displayScore(B.getScoreTeam(), B_Total);
-                    displayScore(B.getInningScore(0), B_In1);
-                    displayScore(B.getInningScore(1), B_In2);
+                    displayScore(B.getScoreTeam(), totalScoreB);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
                 }
             }
             if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
                 B.setInningScore(3, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2));
-                displayScore(B.getInningScore(3), B_In4);
+                displayScore(B.getInningScore(3), scoreInning4TeamB);
                 if (B.getInningScore(3) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(3, 0);
-                    displayScore(B.getInningScore(3), B_In4);
+                    displayScore(B.getInningScore(3), scoreInning4TeamB);
                     B.setScoreTeam(B.getInningScore(0) + B.getInningScore(1) + B.getInningScore(2));
-                    displayScore(B.getScoreTeam(), B_Total);
-                    displayScore(B.getInningScore(0), B_In1);
-                    displayScore(B.getInningScore(1), B_In2);
-                    displayScore(B.getInningScore(2), B_In3);
+                    displayScore(B.getScoreTeam(), totalScoreB);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
+                    displayScore(B.getInningScore(2), scoreInning3TeamB);
                 }
             }
             if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
                 B.setInningScore(4, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3));
-                displayScore(B.getInningScore(4), B_In5);
+                displayScore(B.getInningScore(4), scoreInning5TeamB);
                 if (B.getInningScore(4) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(4, 0);
-                    displayScore(B.getInningScore(4), B_In5);
+                    displayScore(B.getInningScore(4), scoreInning5TeamB);
                     B.setScoreTeam(B.getInningScore(0) + B.getInningScore(1) + B.getInningScore(2) + B.getInningScore(3));
-                    displayScore(B.getScoreTeam(), B_Total);
-                    displayScore(B.getInningScore(0), B_In1);
-                    displayScore(B.getInningScore(1), B_In2);
-                    displayScore(B.getInningScore(2), B_In3);
-                    displayScore(B.getInningScore(3), B_In4);
+                    displayScore(B.getScoreTeam(), totalScoreB);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
+                    displayScore(B.getInningScore(2), scoreInning3TeamB);
+                    displayScore(B.getInningScore(3), scoreInning4TeamB);
                 }
             }
             if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
                 B.setInningScore(5, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4));
-                displayScore(B.getInningScore(5), B_In6);
+                displayScore(B.getInningScore(5), scoreInning6TeamB);
                 if (B.getInningScore(5) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(5, 0);
-                    displayScore(B.getInningScore(5), B_In6);
+                    displayScore(B.getInningScore(5), scoreInning6TeamB);
                     B.setScoreTeam(B.getInningScore(0) + B.getInningScore(1) + B.getInningScore(2) + B.getInningScore(3) + B.getInningScore(4));
-                    displayScore(B.getScoreTeam(), B_Total);
-                    displayScore(B.getInningScore(0), B_In1);
-                    displayScore(B.getInningScore(1), B_In2);
-                    displayScore(B.getInningScore(2), B_In3);
-                    displayScore(B.getInningScore(3), B_In4);
-                    displayScore(B.getInningScore(4), B_In5);
+                    displayScore(B.getScoreTeam(), totalScoreB);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
+                    displayScore(B.getInningScore(2), scoreInning3TeamB);
+                    displayScore(B.getInningScore(3), scoreInning4TeamB);
+                    displayScore(B.getInningScore(4), scoreInning5TeamB);
                 }
             }
             if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
                 B.setInningScore(6, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5));
-                displayScore(B.getInningScore(6), B_In7);
+                displayScore(B.getInningScore(6), scoreInning7TeamB);
                 if (B.getInningScore(6) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(6, 0);
-                    displayScore(B.getInningScore(6), B_In7);
+                    displayScore(B.getInningScore(6), scoreInning7TeamB);
                     B.setScoreTeam(B.getInningScore(0) + B.getInningScore(1) + B.getInningScore(2) + B.getInningScore(3) + B.getInningScore(4) + B.getInningScore(5));
-                    displayScore(B.getScoreTeam(), B_Total);
-                    displayScore(B.getInningScore(0), B_In1);
-                    displayScore(B.getInningScore(1), B_In2);
-                    displayScore(B.getInningScore(2), B_In3);
-                    displayScore(B.getInningScore(3), B_In4);
-                    displayScore(B.getInningScore(4), B_In5);
-                    displayScore(B.getInningScore(5), B_In6);
+                    displayScore(B.getScoreTeam(), totalScoreB);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
+                    displayScore(B.getInningScore(2), scoreInning3TeamB);
+                    displayScore(B.getInningScore(3), scoreInning4TeamB);
+                    displayScore(B.getInningScore(4), scoreInning5TeamB);
+                    displayScore(B.getInningScore(5), scoreInning6TeamB);
                 }
             }
             if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
                 B.setInningScore(7, B.getScoreTeam() - B.getInningScore(0) - B.getInningScore(1) - B.getInningScore(2) - B.getInningScore(3) - B.getInningScore(4) - B.getInningScore(5) - B.getInningScore(6));
-                displayScore(B.getInningScore(7), B_In8);
+                displayScore(B.getInningScore(7), scoreInning8TeamB);
                 if (B.getInningScore(7) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(7, 0);
-                    displayScore(B.getInningScore(7), B_In8);
+                    displayScore(B.getInningScore(7), scoreInning8TeamB);
                     B.setScoreTeam(B.getInningScore(0) + B.getInningScore(1) + B.getInningScore(2) + B.getInningScore(3) + B.getInningScore(4) + B.getInningScore(5) + B.getInningScore(6));
-                    displayScore(B.getScoreTeam(), B_Total);
-                    displayScore(B.getInningScore(0), B_In1);
-                    displayScore(B.getInningScore(1), B_In2);
-                    displayScore(B.getInningScore(2), B_In3);
-                    displayScore(B.getInningScore(3), B_In4);
-                    displayScore(B.getInningScore(4), B_In5);
-                    displayScore(B.getInningScore(5), B_In6);
-                    displayScore(B.getInningScore(6), B_In7);
+                    displayScore(B.getScoreTeam(), totalScoreB);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
+                    displayScore(B.getInningScore(2), scoreInning3TeamB);
+                    displayScore(B.getInningScore(3), scoreInning4TeamB);
+                    displayScore(B.getInningScore(4), scoreInning5TeamB);
+                    displayScore(B.getInningScore(5), scoreInning6TeamB);
+                    displayScore(B.getInningScore(6), scoreInning7TeamB);
                 }
             }
             if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
@@ -370,45 +370,45 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     B.setInningScore(8, 0);
-                    displayScore(B.getInningScore(8), B_In9);
+                    displayScore(B.getInningScore(8), scoreInning9TeamB);
                     B.setScoreTeam(B.getInningScore(0) + B.getInningScore(1) + B.getInningScore(2) + B.getInningScore(3) + B.getInningScore(4) + B.getInningScore(5) + B.getInningScore(6) + B.getInningScore(7));
-                    displayScore(B.getScoreTeam(), B_Total);
-                    displayScore(B.getInningScore(0), B_In1);
-                    displayScore(B.getInningScore(1), B_In2);
-                    displayScore(B.getInningScore(2), B_In3);
-                    displayScore(B.getInningScore(3), B_In4);
-                    displayScore(B.getInningScore(4), B_In5);
-                    displayScore(B.getInningScore(5), B_In6);
-                    displayScore(B.getInningScore(6), B_In7);
-                    displayScore(B.getInningScore(7), B_In8);
+                    displayScore(B.getScoreTeam(), totalScoreB);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
+                    displayScore(B.getInningScore(2), scoreInning3TeamB);
+                    displayScore(B.getInningScore(3), scoreInning4TeamB);
+                    displayScore(B.getInningScore(4), scoreInning5TeamB);
+                    displayScore(B.getInningScore(5), scoreInning6TeamB);
+                    displayScore(B.getInningScore(6), scoreInning7TeamB);
+                    displayScore(B.getInningScore(7), scoreInning8TeamB);
                 }
             }
         } else {
             A.setScoreTeam(A.getScoreTeam() - 1);
-            displayScore(A.getScoreTeam(), A_Total);
+            displayScore(A.getScoreTeam(), totalScoreA);
             if (A.getScoreTeam() <= 0) {
                 //Show an error message as Toast
                 mySound.play(erroralertId, 1, 1, 1, 0, 1);
                 Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                 //exit this method early
                 A.setScoreTeam(0);
-                displayScore(A.getScoreTeam(), A_Total);
+                displayScore(A.getScoreTeam(), totalScoreA);
             }
             if (A.getOutTeam() < 3) {
                 A.setInningScore(0, A.getScoreTeam());
-                displayScore(A.getInningScore(0), A_In1);
+                displayScore(A.getInningScore(0), scoreInning1TeamA);
                 if (A.getInningScore(0) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(0, 0);
-                    displayScore(A.getInningScore(0), A_In1);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
                 }
             }
             if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
                 A.setInningScore(1, A.getScoreTeam() - A.getInningScore(0));
-                displayScore(A.getInningScore(1), A_In2);
+                displayScore(A.getInningScore(1), scoreInning2TeamA);
                 if (A.getInningScore(1) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
@@ -416,142 +416,142 @@ public class MainActivity extends AppCompatActivity {
                     //exit this method early
                     A.setInningScore(0, A.getScoreTeam());
                     A.setInningScore(1, 0);
-                    displayScore(A.getScoreTeam(), A_Total);
-                    displayScore(A.getInningScore(0), A_In1);
-                    displayScore(A.getInningScore(1), A_In2);
+                    displayScore(A.getScoreTeam(), totalScoreA);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
                 }
             }
             if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
                 A.setInningScore(2, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1));
-                displayScore(A.getInningScore(2), A_In3);
+                displayScore(A.getInningScore(2), scoreInning3TeamA);
                 if (A.getInningScore(2) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(2, 0);
-                    displayScore(A.getInningScore(2), A_In3);
+                    displayScore(A.getInningScore(2), scoreInning3TeamA);
                     A.setScoreTeam(A.getInningScore(0) + A.getInningScore(0));
-                    displayScore(A.getScoreTeam(), A_Total);
-                    displayScore(A.getInningScore(0), A_In1);
-                    displayScore(A.getInningScore(1), A_In2);
+                    displayScore(A.getScoreTeam(), totalScoreA);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
                 }
             }
             if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
                 A.setInningScore(3, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2));
-                displayScore(A.getInningScore(3), A_In4);
+                displayScore(A.getInningScore(3), scoreInning4TeamA);
                 if (A.getInningScore(3) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(3, 0);
-                    displayScore(A.getInningScore(3), A_In4);
+                    displayScore(A.getInningScore(3), scoreInning4TeamA);
                     A.setScoreTeam(A.getInningScore(0) + A.getInningScore(1) + A.getInningScore(2));
-                    displayScore(A.getScoreTeam(), A_Total);
-                    displayScore(A.getInningScore(0), A_In1);
-                    displayScore(A.getInningScore(1), A_In2);
-                    displayScore(A.getInningScore(2), A_In3);
+                    displayScore(A.getScoreTeam(), totalScoreA);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
+                    displayScore(A.getInningScore(2), scoreInning3TeamA);
                 }
             }
             if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
                 A.setInningScore(4, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3));
-                displayScore(A.getInningScore(4), A_In5);
+                displayScore(A.getInningScore(4), scoreInning5TeamA);
                 if (A.getInningScore(4) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(4, 0);
-                    displayScore(A.getInningScore(4), A_In5);
+                    displayScore(A.getInningScore(4), scoreInning5TeamA);
                     A.setScoreTeam(A.getInningScore(0) + A.getInningScore(1) + A.getInningScore(2) + A.getInningScore(3));
-                    displayScore(A.getScoreTeam(), A_Total);
-                    displayScore(A.getInningScore(0), A_In1);
-                    displayScore(A.getInningScore(1), A_In2);
-                    displayScore(A.getInningScore(2), A_In3);
-                    displayScore(A.getInningScore(3), A_In4);
+                    displayScore(A.getScoreTeam(), totalScoreA);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
+                    displayScore(A.getInningScore(2), scoreInning3TeamA);
+                    displayScore(A.getInningScore(3), scoreInning4TeamA);
                 }
             }
             if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
                 A.setInningScore(5, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4));
-                displayScore(A.getInningScore(5), A_In6);
+                displayScore(A.getInningScore(5), scoreInning6TeamA);
                 if (A.getInningScore(5) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(5, 0);
-                    displayScore(A.getInningScore(5), A_In6);
+                    displayScore(A.getInningScore(5), scoreInning6TeamA);
                     A.setScoreTeam(A.getInningScore(0) + A.getInningScore(1) + A.getInningScore(2) + A.getInningScore(3) + A.getInningScore(4));
-                    displayScore(A.getScoreTeam(), A_Total);
-                    displayScore(A.getInningScore(0), A_In1);
-                    displayScore(A.getInningScore(1), A_In2);
-                    displayScore(A.getInningScore(2), A_In3);
-                    displayScore(A.getInningScore(3), A_In4);
-                    displayScore(A.getInningScore(4), A_In5);
+                    displayScore(A.getScoreTeam(), totalScoreA);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
+                    displayScore(A.getInningScore(2), scoreInning3TeamA);
+                    displayScore(A.getInningScore(3), scoreInning4TeamA);
+                    displayScore(A.getInningScore(4), scoreInning5TeamA);
                 }
             }
             if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
                 A.setInningScore(6, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5));
-                displayScore(A.getInningScore(6), A_In7);
+                displayScore(A.getInningScore(6), scoreInning7TeamA);
                 if (A.getInningScore(6) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(6, 0);
-                    displayScore(A.getInningScore(6), A_In7);
+                    displayScore(A.getInningScore(6), scoreInning7TeamA);
                     A.setScoreTeam(A.getInningScore(0) + A.getInningScore(1) + A.getInningScore(2) + A.getInningScore(3) + A.getInningScore(4) + A.getInningScore(5));
-                    displayScore(A.getScoreTeam(), A_Total);
-                    displayScore(A.getInningScore(0), A_In1);
-                    displayScore(A.getInningScore(1), A_In2);
-                    displayScore(A.getInningScore(2), A_In3);
-                    displayScore(A.getInningScore(3), A_In4);
-                    displayScore(A.getInningScore(4), A_In5);
-                    displayScore(A.getInningScore(5), A_In6);
+                    displayScore(A.getScoreTeam(), totalScoreA);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
+                    displayScore(A.getInningScore(2), scoreInning3TeamA);
+                    displayScore(A.getInningScore(3), scoreInning4TeamA);
+                    displayScore(A.getInningScore(4), scoreInning5TeamA);
+                    displayScore(A.getInningScore(5), scoreInning6TeamA);
                 }
             }
             if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
                 A.setInningScore(7, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5) - A.getInningScore(6));
-                displayScore(A.getInningScore(7), A_In8);
+                displayScore(A.getInningScore(7), scoreInning8TeamA);
                 if (A.getInningScore(7) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(7, 0);
-                    displayScore(A.getInningScore(7), A_In8);
+                    displayScore(A.getInningScore(7), scoreInning8TeamA);
                     A.setScoreTeam(A.getInningScore(0) + A.getInningScore(1) + A.getInningScore(2) + A.getInningScore(3) + A.getInningScore(4) + A.getInningScore(5) + A.getInningScore(6));
-                    displayScore(A.getScoreTeam(), A_Total);
-                    displayScore(A.getInningScore(0), A_In1);
-                    displayScore(A.getInningScore(1), A_In2);
-                    displayScore(A.getInningScore(2), A_In3);
-                    displayScore(A.getInningScore(3), A_In4);
-                    displayScore(A.getInningScore(4), A_In5);
-                    displayScore(A.getInningScore(5), A_In6);
-                    displayScore(A.getInningScore(6), A_In7);
+                    displayScore(A.getScoreTeam(), totalScoreA);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
+                    displayScore(A.getInningScore(2), scoreInning3TeamA);
+                    displayScore(A.getInningScore(3), scoreInning4TeamA);
+                    displayScore(A.getInningScore(4), scoreInning5TeamA);
+                    displayScore(A.getInningScore(5), scoreInning6TeamA);
+                    displayScore(A.getInningScore(6), scoreInning7TeamA);
                 }
             }
             if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
                 A.setInningScore(8, A.getScoreTeam() - A.getInningScore(0) - A.getInningScore(1) - A.getInningScore(2) - A.getInningScore(3) - A.getInningScore(4) - A.getInningScore(5) - A.getInningScore(7));
-                displayScore(A.getInningScore(8), A_In9);
+                displayScore(A.getInningScore(8), scoreInning9TeamA);
                 if (A.getInningScore(8) <= 0) {
                     //Show an error message as Toast
                     mySound.play(erroralertId, 1, 1, 1, 0, 1);
                     Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                     //exit this method early
                     A.setInningScore(8, 0);
-                    displayScore(A.getInningScore(8), A_In9);
+                    displayScore(A.getInningScore(8), scoreInning9TeamA);
                     A.setScoreTeam(A.getInningScore(0) + A.getInningScore(1) + A.getInningScore(2) + A.getInningScore(3) + A.getInningScore(4) + A.getInningScore(5) + A.getInningScore(6) + A.getInningScore(7));
-                    displayScore(A.getScoreTeam(), A_Total);
-                    displayScore(A.getInningScore(0), A_In1);
-                    displayScore(A.getInningScore(1), A_In2);
-                    displayScore(A.getInningScore(2), A_In3);
-                    displayScore(A.getInningScore(3), A_In4);
-                    displayScore(A.getInningScore(4), A_In5);
-                    displayScore(A.getInningScore(5), A_In6);
-                    displayScore(A.getInningScore(6), A_In7);
-                    displayScore(A.getInningScore(7), A_In8);
+                    displayScore(A.getScoreTeam(), totalScoreA);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
+                    displayScore(A.getInningScore(2), scoreInning3TeamA);
+                    displayScore(A.getInningScore(3), scoreInning4TeamA);
+                    displayScore(A.getInningScore(4), scoreInning5TeamA);
+                    displayScore(A.getInningScore(5), scoreInning6TeamA);
+                    displayScore(A.getInningScore(6), scoreInning7TeamA);
+                    displayScore(A.getInningScore(7), scoreInning8TeamA);
                 }
             }
         }
@@ -566,81 +566,81 @@ public class MainActivity extends AppCompatActivity {
         //check the current state before we display the screen
         if (turnSwitch.isChecked()) {
             B.setScoreTeam(B.getScoreTeam() + runner + 1);
-            displayScore(B.getScoreTeam(), B_Total);
+            displayScore(B.getScoreTeam(), totalScoreB);
             if (B.getOutTeam() < 3) {
                 B.setInningScore(0, B.getInningScore(0) + runner + 1);
-                displayScore(B.getInningScore(0), B_In1);
+                displayScore(B.getInningScore(0), scoreInning1TeamB);
             }
             if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
                 B.setInningScore(1, B.getInningScore(1) + runner + 1);
-                displayScore(B.getInningScore(1), B_In2);
+                displayScore(B.getInningScore(1), scoreInning2TeamB);
             }
             if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
                 B.setInningScore(2, B.getInningScore(2) + runner + 1);
-                displayScore(B.getInningScore(2), B_In3);
+                displayScore(B.getInningScore(2), scoreInning3TeamB);
             }
             if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
                 B.setInningScore(3, B.getInningScore(3) + runner + 1);
-                displayScore(B.getInningScore(3), B_In4);
+                displayScore(B.getInningScore(3), scoreInning4TeamB);
             }
             if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
                 B.setInningScore(4, B.getInningScore(4) + runner + 1);
-                displayScore(B.getInningScore(4), B_In5);
+                displayScore(B.getInningScore(4), scoreInning5TeamB);
             }
             if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
                 B.setInningScore(5, B.getInningScore(5) + runner + 1);
-                displayScore(B.getInningScore(5), B_In6);
+                displayScore(B.getInningScore(5), scoreInning6TeamB);
             }
             if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
                 B.setInningScore(6, B.getInningScore(6) + runner + 1);
-                displayScore(B.getInningScore(6), B_In7);
+                displayScore(B.getInningScore(6), scoreInning7TeamB);
             }
             if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
                 B.setInningScore(7, B.getInningScore(7) + runner + 1);
-                displayScore(B.getInningScore(7), B_In8);
+                displayScore(B.getInningScore(7), scoreInning8TeamB);
             }
             if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
                 B.setInningScore(8, B.getInningScore(8) + runner + 1);
-                displayScore(B.getInningScore(8), B_In9);
+                displayScore(B.getInningScore(8), scoreInning9TeamB);
             }
         } else {
             A.setScoreTeam(A.getScoreTeam() + runner + 1);
-            displayScore(A.getScoreTeam(), A_Total);
+            displayScore(A.getScoreTeam(), totalScoreA);
             if (A.getOutTeam() < 3) {
                 A.setInningScore(0, A.getInningScore(0) + runner + 1);
-                displayScore(A.getInningScore(0), A_In1);
+                displayScore(A.getInningScore(0), scoreInning1TeamA);
             }
             if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
                 A.setInningScore(1, A.getInningScore(1) + runner + 1);
-                displayScore(A.getInningScore(1), A_In2);
+                displayScore(A.getInningScore(1), scoreInning2TeamA);
             }
             if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
                 A.setInningScore(2, A.getInningScore(2) + runner + 1);
-                displayScore(A.getInningScore(2), A_In3);
+                displayScore(A.getInningScore(2), scoreInning3TeamA);
             }
             if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
                 A.setInningScore(3, A.getInningScore(3) + runner + 1);
-                displayScore(A.getInningScore(3), A_In4);
+                displayScore(A.getInningScore(3), scoreInning4TeamA);
             }
             if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
                 A.setInningScore(4, A.getInningScore(4) + runner + 1);
-                displayScore(A.getInningScore(4), A_In5);
+                displayScore(A.getInningScore(4), scoreInning5TeamA);
             }
             if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
                 A.setInningScore(5, A.getInningScore(5) + runner + 1);
-                displayScore(A.getInningScore(5), A_In6);
+                displayScore(A.getInningScore(5), scoreInning6TeamA);
             }
             if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
                 A.setInningScore(6, A.getInningScore(6) + runner + 1);
-                displayScore(A.getInningScore(6), A_In7);
+                displayScore(A.getInningScore(6), scoreInning7TeamA);
             }
             if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
                 A.setInningScore(7, A.getInningScore(7) + runner + 1);
-                displayScore(A.getInningScore(7), A_In8);
+                displayScore(A.getInningScore(7), scoreInning8TeamA);
             }
             if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
                 A.setInningScore(8, A.getInningScore(8) + runner + 1);
-                displayScore(A.getInningScore(8), A_In9);
+                displayScore(A.getInningScore(8), scoreInning9TeamA);
             }
         }
         runner = 0;
@@ -784,81 +784,81 @@ public class MainActivity extends AppCompatActivity {
             //check the current state before display on the screen
             if (turnSwitch.isChecked()) {
                 B.setScoreTeam(B.getScoreTeam() + 1);
-                displayScore(B.getScoreTeam(), B_Total);
+                displayScore(B.getScoreTeam(), totalScoreB);
                 if (B.getOutTeam() < 3) {
                     B.setInningScore(0, B.getInningScore(0) + 1);
-                    displayScore(B.getInningScore(0), B_In1);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
                 }
                 if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
                     B.setInningScore(1, B.getInningScore(1) + 1);
-                    displayScore(B.getInningScore(1), B_In2);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
                 }
                 if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
                     B.setInningScore(2, B.getInningScore(2) + 1);
-                    displayScore(B.getInningScore(2), B_In3);
+                    displayScore(B.getInningScore(2), scoreInning3TeamB);
                 }
                 if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
                     B.setInningScore(3, B.getInningScore(3) + 1);
-                    displayScore(B.getInningScore(3), B_In4);
+                    displayScore(B.getInningScore(3), scoreInning4TeamB);
                 }
                 if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
                     B.setInningScore(4, B.getInningScore(4) + 1);
-                    displayScore(B.getInningScore(4), B_In5);
+                    displayScore(B.getInningScore(4), scoreInning5TeamB);
                 }
                 if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
                     B.setInningScore(5, B.getInningScore(5) + 1);
-                    displayScore(B.getInningScore(5), B_In6);
+                    displayScore(B.getInningScore(5), scoreInning6TeamB);
                 }
                 if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
                     B.setInningScore(6, B.getInningScore(6) + 1);
-                    displayScore(B.getInningScore(6), B_In7);
+                    displayScore(B.getInningScore(6), scoreInning7TeamB);
                 }
                 if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
                     B.setInningScore(7, B.getInningScore(7) + 1);
-                    displayScore(B.getInningScore(7), B_In8);
+                    displayScore(B.getInningScore(7), scoreInning8TeamB);
                 }
                 if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
                     B.setInningScore(8, B.getInningScore(8) + 1);
-                    displayScore(B.getInningScore(8), B_In9);
+                    displayScore(B.getInningScore(8), scoreInning9TeamB);
                 }
             } else {
                 A.setScoreTeam(A.getScoreTeam() + 1);
-                displayScore(A.getScoreTeam(), A_Total);
+                displayScore(A.getScoreTeam(), totalScoreA);
                 if (A.getOutTeam() < 3) {
                     A.setInningScore(0, A.getInningScore(0) + 1);
-                    displayScore(A.getInningScore(0), A_In1);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
                 }
                 if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
                     A.setInningScore(1, A.getInningScore(1) + 1);
-                    displayScore(A.getInningScore(1), A_In2);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
                 }
                 if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
                     A.setInningScore(2, A.getInningScore(2) + 1);
-                    displayScore(A.getInningScore(2), A_In3);
+                    displayScore(A.getInningScore(2), scoreInning3TeamA);
                 }
                 if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
                     A.setInningScore(3, A.getInningScore(3) + 1);
-                    displayScore(A.getInningScore(3), A_In4);
+                    displayScore(A.getInningScore(3), scoreInning4TeamA);
                 }
                 if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
                     A.setInningScore(4, A.getInningScore(4) + 1);
-                    displayScore(A.getInningScore(4), A_In5);
+                    displayScore(A.getInningScore(4), scoreInning5TeamA);
                 }
                 if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
                     A.setInningScore(5, A.getInningScore(5) + 1);
-                    displayScore(A.getInningScore(5), A_In6);
+                    displayScore(A.getInningScore(5), scoreInning6TeamA);
                 }
                 if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
                     A.setInningScore(6, A.getInningScore(6) + 1);
-                    displayScore(A.getInningScore(6), A_In7);
+                    displayScore(A.getInningScore(6), scoreInning7TeamA);
                 }
                 if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
                     A.setInningScore(7, A.getInningScore(7) + 1);
-                    displayScore(A.getInningScore(7), A_In8);
+                    displayScore(A.getInningScore(7), scoreInning8TeamA);
                 }
                 if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
                     A.setInningScore(8, A.getInningScore(8) + 1);
-                    displayScore(A.getInningScore(8), A_In9);
+                    displayScore(A.getInningScore(8), scoreInning9TeamA);
                 }
             }
             runner = runner - 1;
@@ -981,81 +981,81 @@ public class MainActivity extends AppCompatActivity {
             //check the current state before display on the screen
             if (turnSwitch.isChecked()) {
                 B.setScoreTeam(B.getScoreTeam() + 1);
-                displayScore(B.getScoreTeam(), B_Total);
+                displayScore(B.getScoreTeam(), totalScoreB);
                 if (B.getOutTeam() < 3) {
                     B.setInningScore(0, B.getInningScore(0) + 1);
-                    displayScore(B.getInningScore(0), B_In1);
+                    displayScore(B.getInningScore(0), scoreInning1TeamB);
                 }
                 if ((B.getOutTeam() >= 3) && (B.getOutTeam() < 6)) {
                     B.setInningScore(1, B.getInningScore(1) + 1);
-                    displayScore(B.getInningScore(1), B_In2);
+                    displayScore(B.getInningScore(1), scoreInning2TeamB);
                 }
                 if ((B.getOutTeam() >= 6) && (B.getOutTeam() < 9)) {
                     B.setInningScore(2, B.getInningScore(2) + 1);
-                    displayScore(B.getInningScore(2), B_In3);
+                    displayScore(B.getInningScore(2), scoreInning3TeamB);
                 }
                 if ((B.getOutTeam() >= 9) && (B.getOutTeam() < 12)) {
                     B.setInningScore(3, B.getInningScore(3) + 1);
-                    displayScore(B.getInningScore(3), B_In4);
+                    displayScore(B.getInningScore(3), scoreInning4TeamB);
                 }
                 if ((B.getOutTeam() >= 12) && (B.getOutTeam() < 15)) {
                     B.setInningScore(4, B.getInningScore(4) + 1);
-                    displayScore(B.getInningScore(4), B_In5);
+                    displayScore(B.getInningScore(4), scoreInning5TeamB);
                 }
                 if ((B.getOutTeam() >= 15) && (B.getOutTeam() < 18)) {
                     B.setInningScore(5, B.getInningScore(5) + 1);
-                    displayScore(B.getInningScore(5), B_In6);
+                    displayScore(B.getInningScore(5), scoreInning6TeamB);
                 }
                 if ((B.getOutTeam() >= 18) && (B.getOutTeam() < 21)) {
                     B.setInningScore(6, B.getInningScore(6) + 1);
-                    displayScore(B.getInningScore(6), B_In7);
+                    displayScore(B.getInningScore(6), scoreInning7TeamB);
                 }
                 if ((B.getOutTeam() >= 21) && (B.getOutTeam() < 24)) {
                     B.setInningScore(7, B.getInningScore(7) + 1);
-                    displayScore(B.getInningScore(7), B_In8);
+                    displayScore(B.getInningScore(7), scoreInning8TeamB);
                 }
                 if ((B.getOutTeam() >= 24) && (B.getOutTeam() < 27)) {
                     B.setInningScore(8, B.getInningScore(8) + 1);
-                    displayScore(B.getInningScore(8), B_In9);
+                    displayScore(B.getInningScore(8), scoreInning9TeamB);
                 }
             } else {
                 A.setScoreTeam(A.getScoreTeam() + 1);
-                displayScore(A.getScoreTeam(), A_Total);
+                displayScore(A.getScoreTeam(), totalScoreA);
                 if (A.getOutTeam() < 3) {
                     A.setInningScore(0, A.getInningScore(0) + 1);
-                    displayScore(A.getInningScore(0), A_In1);
+                    displayScore(A.getInningScore(0), scoreInning1TeamA);
                 }
                 if ((A.getOutTeam() >= 3) && (A.getOutTeam() < 6)) {
                     A.setInningScore(1, A.getInningScore(1) + 1);
-                    displayScore(A.getInningScore(1), A_In2);
+                    displayScore(A.getInningScore(1), scoreInning2TeamA);
                 }
                 if ((A.getOutTeam() >= 6) && (A.getOutTeam() < 9)) {
                     A.setInningScore(2, A.getInningScore(2) + 1);
-                    displayScore(A.getInningScore(2), A_In3);
+                    displayScore(A.getInningScore(2), scoreInning3TeamA);
                 }
                 if ((A.getOutTeam() >= 9) && (A.getOutTeam() < 12)) {
                     A.setInningScore(3, A.getInningScore(3) + 1);
-                    displayScore(A.getInningScore(3), A_In4);
+                    displayScore(A.getInningScore(3), scoreInning4TeamA);
                 }
                 if ((A.getOutTeam() >= 12) && (A.getOutTeam() < 15)) {
                     A.setInningScore(4, A.getInningScore(4) + 1);
-                    displayScore(A.getInningScore(4), A_In5);
+                    displayScore(A.getInningScore(4), scoreInning5TeamA);
                 }
                 if ((A.getOutTeam() >= 15) && (A.getOutTeam() < 18)) {
                     A.setInningScore(5, A.getInningScore(5) + 1);
-                    displayScore(A.getInningScore(5), A_In6);
+                    displayScore(A.getInningScore(5), scoreInning6TeamA);
                 }
                 if ((A.getOutTeam() >= 18) && (A.getOutTeam() < 21)) {
                     A.setInningScore(6, A.getInningScore(6) + 1);
-                    displayScore(A.getInningScore(6), A_In7);
+                    displayScore(A.getInningScore(6), scoreInning7TeamA);
                 }
                 if ((A.getOutTeam() >= 21) && (A.getOutTeam() < 24)) {
                     A.setInningScore(7, A.getInningScore(7) + 1);
-                    displayScore(A.getInningScore(7), A_In8);
+                    displayScore(A.getInningScore(7), scoreInning8TeamA);
                 }
                 if ((A.getOutTeam() >= 24) && (A.getOutTeam() < 27)) {
                     A.setInningScore(8, A.getInningScore(8) + 1);
-                    displayScore(A.getInningScore(8), A_In9);
+                    displayScore(A.getInningScore(8), scoreInning9TeamA);
                 }
             }
         }
@@ -1086,46 +1086,46 @@ public class MainActivity extends AppCompatActivity {
     public void reset(View v) {
         mySound.play(resetId, 1, 1, 1, 0, 1);
         A.setScoreTeam(0);
-        displayScore(A.getScoreTeam(), A_Total);
+        displayScore(A.getScoreTeam(), totalScoreA);
         A.setInningScore(0, 0);
-        displayScore(A.getInningScore(0), A_In1);
+        displayScore(A.getInningScore(0), scoreInning1TeamA);
         A.setInningScore(1, 0);
-        displayScore(A.getInningScore(1), A_In2);
+        displayScore(A.getInningScore(1), scoreInning2TeamA);
         A.setInningScore(2, 0);
-        displayScore(A.getInningScore(2), A_In3);
+        displayScore(A.getInningScore(2), scoreInning3TeamA);
         A.setInningScore(3, 0);
-        displayScore(A.getInningScore(3), A_In4);
+        displayScore(A.getInningScore(3), scoreInning4TeamA);
         A.setInningScore(4, 0);
-        displayScore(A.getInningScore(4), A_In5);
+        displayScore(A.getInningScore(4), scoreInning5TeamA);
         A.setInningScore(5, 0);
-        displayScore(A.getInningScore(5), A_In6);
+        displayScore(A.getInningScore(5), scoreInning6TeamA);
         A.setInningScore(6, 0);
-        displayScore(A.getInningScore(6), A_In7);
+        displayScore(A.getInningScore(6), scoreInning7TeamA);
         A.setInningScore(7, 0);
-        displayScore(A.getInningScore(7), A_In8);
+        displayScore(A.getInningScore(7), scoreInning8TeamA);
         A.setInningScore(8, 0);
-        displayScore(A.getInningScore(8), A_In9);
+        displayScore(A.getInningScore(8), scoreInning9TeamA);
         // Tracks the score for Team B
         B.setScoreTeam(0);
-        displayScore(B.getScoreTeam(), B_Total);
+        displayScore(B.getScoreTeam(), totalScoreB);
         B.setInningScore(0, 0);
-        displayScore(B.getInningScore(0), B_In1);
+        displayScore(B.getInningScore(0), scoreInning1TeamB);
         B.setInningScore(1, 0);
-        displayScore(B.getInningScore(1), B_In2);
+        displayScore(B.getInningScore(1), scoreInning2TeamB);
         B.setInningScore(2, 0);
-        displayScore(B.getInningScore(2), B_In3);
+        displayScore(B.getInningScore(2), scoreInning3TeamB);
         B.setInningScore(3, 0);
-        displayScore(B.getInningScore(3), B_In4);
+        displayScore(B.getInningScore(3), scoreInning4TeamB);
         B.setInningScore(4, 0);
-        displayScore(B.getInningScore(4), B_In5);
+        displayScore(B.getInningScore(4), scoreInning5TeamB);
         B.setInningScore(5, 0);
-        displayScore(B.getInningScore(5), B_In6);
+        displayScore(B.getInningScore(5), scoreInning6TeamB);
         B.setInningScore(6, 0);
-        displayScore(B.getInningScore(6), B_In7);
+        displayScore(B.getInningScore(6), scoreInning7TeamB);
         B.setInningScore(7, 0);
-        displayScore(B.getInningScore(7), B_In8);
+        displayScore(B.getInningScore(7), scoreInning8TeamB);
         B.setInningScore(8, 0);
-        displayScore(B.getInningScore(8), B_In9);
+        displayScore(B.getInningScore(8), scoreInning9TeamB);
         // Tracks the Out for Team A
         A.setOutTeam(0);
         // Tracks the Out for Team B
