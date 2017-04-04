@@ -125,13 +125,13 @@ public class MainActivity extends AppCompatActivity {
         if (turnSwitch.isChecked()) {
             addOnePoint(B);
             displayScore(B.getInningScore(currentInning), B.inningScoreView[currentInning]);
-            B.setScoreTeam(B.getScoreTeam() + 1);
+            calculateTotalScore();
             displayTotalScore(B.getScoreTeam(), totalScoreViewB);
 
         } else {
             addOnePoint(A);
             displayScore(A.getInningScore(currentInning), A.inningScoreView[currentInning]);
-            A.setScoreTeam(A.getScoreTeam() + 1);
+            calculateTotalScore();
             displayTotalScore(A.getScoreTeam(), totalScoreViewA);
         }
 
@@ -154,6 +154,18 @@ public class MainActivity extends AppCompatActivity {
         displayScore(t.getInningScore(currentInning), t.inningScoreView[currentInning]);
     }
 
+    private void calculateTotalScore() {
+        if (turnSwitch.isChecked()) {
+            B.setScoreTeam(B.getInningScore(0) + B.getInningScore(1) + B.getInningScore(2) + B.getInningScore(3) + B.getInningScore(4) + B.getInningScore(5) + B.getInningScore(6) + B.getInningScore(7) + B.getInningScore(8));
+            displayTotalScore(B.getScoreTeam(), totalScoreViewB);
+
+        } else {
+            A.setScoreTeam(A.getInningScore(0) + A.getInningScore(1) + A.getInningScore(2) + A.getInningScore(3) + A.getInningScore(4) + A.getInningScore(5) + A.getInningScore(6) + A.getInningScore(7) + A.getInningScore(8));
+            displayTotalScore(A.getScoreTeam(), totalScoreViewA);
+
+        }
+    }
+
     /**
      * Decrease the score for the right Team.
      */
@@ -161,28 +173,31 @@ public class MainActivity extends AppCompatActivity {
         if (turnSwitch.isChecked()) {
             delOnePoint(B);
             displayScore(B.getInningScore(currentInning), B.inningScoreView[currentInning]);
-            B.setScoreTeam(B.getScoreTeam() - 1);
+            calculateTotalScore();
             displayTotalScore(B.getScoreTeam(), totalScoreViewB);
-            if (B.getScoreTeam() <= 0) {
+            if (B.getInningScore(currentInning) <= 0) {
                 //Show an error message as Toast
                 mySound.play(erroralertId, 1, 1, 1, 0, 1);
                 Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                 //exit this method early
+                B.setInningScore(currentInning, 0);
+                displayScore(B.getInningScore(currentInning), B.inningScoreView[currentInning]);
             }
         } else {
             delOnePoint(A);
             displayScore(A.getInningScore(currentInning), A.inningScoreView[currentInning]);
-            A.setScoreTeam(A.getScoreTeam() - 1);
+            calculateTotalScore();
             displayTotalScore(A.getScoreTeam(), totalScoreViewA);
-            if (A.getScoreTeam() <= 0) {
+            if (A.getInningScore(currentInning) <= 0) {
                 //Show an error message as Toast
                 mySound.play(erroralertId, 1, 1, 1, 0, 1);
                 Toast.makeText(this, getString(R.string.Toast1), Toast.LENGTH_SHORT).show();
                 //exit this method early
-                A.setScoreTeam(0);
-                displayScore(A.getScoreTeam(), totalScoreViewA);
+                A.setInningScore(currentInning, 0);
+                displayScore(A.getInningScore(currentInning), A.inningScoreView[currentInning]);
             }
         }
+
     }
 
     private void delOnePoint(Team t) {
@@ -216,12 +231,12 @@ public class MainActivity extends AppCompatActivity {
         if (turnSwitch.isChecked()) {
             doHomeRun(B);
             displayScore(B.getInningScore(currentInning), B.inningScoreView[currentInning]);
-            B.setScoreTeam(B.getScoreTeam() + runner + 1);
+            calculateTotalScore();
             displayTotalScore(B.getScoreTeam(), totalScoreViewB);
         } else {
             doHomeRun(A);
             displayScore(A.getInningScore(currentInning), A.inningScoreView[currentInning]);
-            A.setScoreTeam(A.getScoreTeam() + runner + 1);
+            calculateTotalScore();
             displayTotalScore(A.getScoreTeam(), totalScoreViewA);
         }
 
@@ -371,12 +386,12 @@ public class MainActivity extends AppCompatActivity {
             if (turnSwitch.isChecked()) {
                 addOnePoint(B);
                 displayScore(B.getInningScore(currentInning), B.inningScoreView[currentInning]);
-                B.setScoreTeam(B.getScoreTeam() + 1);
+                calculateTotalScore();
                 displayTotalScore(B.getScoreTeam(), totalScoreViewB);
             } else {
                 addOnePoint(A);
                 displayScore(A.getInningScore(currentInning), A.inningScoreView[currentInning]);
-                A.setScoreTeam(A.getScoreTeam() + 1);
+                calculateTotalScore();
                 displayTotalScore(A.getScoreTeam(), totalScoreViewA);
             }
             runner = runner - 1;
@@ -502,12 +517,12 @@ public class MainActivity extends AppCompatActivity {
             if (turnSwitch.isChecked()) {
                 addOnePoint(B);
                 displayScore(B.getInningScore(currentInning), B.inningScoreView[currentInning]);
-                B.setScoreTeam(B.getScoreTeam() + 1);
+                calculateTotalScore();
                 displayTotalScore(B.getScoreTeam(), totalScoreViewB);
             } else {
                 addOnePoint(A);
                 displayScore(A.getInningScore(currentInning), A.inningScoreView[currentInning]);
-                A.setScoreTeam(A.getScoreTeam() + 1);
+                calculateTotalScore();
                 displayTotalScore(A.getScoreTeam(), totalScoreViewA);
             }
         }
@@ -531,6 +546,7 @@ public class MainActivity extends AppCompatActivity {
             displayRunners(runner, numberOfRunner);
         }
     }
+
     /**
      * Method to disable buttons - RESET only active.
      */
@@ -563,6 +579,7 @@ public class MainActivity extends AppCompatActivity {
         outM.setEnabled(false);
         turnSwitch.setEnabled(false);
     }
+
     /**
      * Method to RESET.
      */
@@ -625,7 +642,7 @@ public class MainActivity extends AppCompatActivity {
         runner = 0;
         displayRunners(runner, numberOfRunner);
         turnSwitch.setChecked(false);
-        currentInning = 1;
+        currentInning = 0;
 
         Button plusScore = (Button) findViewById(R.id.plus_score);
         plusScore.setEnabled(true);
