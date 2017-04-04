@@ -1,17 +1,21 @@
 package com.example.android.scorekeeper2;
 
+import android.widget.TextView;
+
 class Team {
 
     private int scoreTeam;
     private int outTeam;
 
     private int[] inningScore;
+    TextView[] inningScoreView;
 
     Team() {
         scoreTeam = 0;
         outTeam = 0;
 
         inningScore = new int[9];
+
     }
 
     void setInningScore(int index, int score) {
