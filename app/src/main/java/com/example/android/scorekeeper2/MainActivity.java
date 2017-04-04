@@ -44,7 +44,13 @@ public class MainActivity extends AppCompatActivity {
     private Team A = new Team();
     private Team B = new Team();
     private ToggleButton turnSwitch;
-    private TextView totalScoreViewA, totalScoreViewB, numberOfStrikes, numberOfFoulBall, numberOfBall, numberOfOut, numberOfRunner;
+    private TextView totalScoreViewA;
+    private TextView totalScoreViewB;
+    private TextView numberOfStrikes;
+    private TextView numberOfFoulBall;
+    private TextView numberOfBall;
+    private TextView numberOfOut;
+    private TextView numberOfRunner;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
@@ -215,12 +221,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void doHomeRun(Team t) {
-
-        t.setInningScore(currentInning, t.getInningScore(currentInning) + runner + 1);
-        displayScore(t.getInningScore(currentInning), t.inningScoreView[currentInning]);
-    }
-
     /**
      * Increase the score for homeruns to right Team.
      */
@@ -243,6 +243,12 @@ public class MainActivity extends AppCompatActivity {
         runner = 0;
         displayRunners(runner, numberOfRunner);
         freeRunner = 0;
+    }
+
+    public void doHomeRun(Team t) {
+
+        t.setInningScore(currentInning, t.getInningScore(currentInning) + runner + 1);
+        displayScore(t.getInningScore(currentInning), t.inningScoreView[currentInning]);
     }
 
     /**
