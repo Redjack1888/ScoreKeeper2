@@ -15,8 +15,17 @@ class Team {
         outTeam = 0;
 
         inningScore = new int[9];
+        inningScoreView = new TextView[9];
+    }
+
+    void setInningScoreView(int index, TextView textViews) {
+       this.inningScoreView[index] = textViews;
+    }
+    TextView getInningScoreView(int index){
+        return this.inningScoreView[index];
 
     }
+
 
     void setInningScore(int index, int score) {
         inningScore[index] = score;
