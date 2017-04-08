@@ -1,7 +1,6 @@
 package com.example.android.scorekeeper2;
 
 import android.annotation.TargetApi;
-import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -93,6 +91,102 @@ public class MainActivity extends AppCompatActivity {
 
         createSoundPool();
         loadSounds();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("strikesSaved", strikes);
+        outState.putInt("foulBallSaved", foulBall);
+        outState.putInt("ballsSaved", balls);
+        outState.putInt("outSaved", out);
+        outState.putInt("freeRunnerSaved", freeRunner);
+        outState.putInt("runnerSaved", runner);
+        outState.putInt("currentInningSaved", currentInning);
+        outState.putInt("outTeamASaved", A.getOutTeam());
+        outState.putInt("outTeamBSaved", B.getOutTeam());
+        outState.putInt("TotalScoreASaved", A.getScoreTeam());
+        outState.putInt("TotalScoreBSaved", B.getScoreTeam());
+        outState.putInt("A.inningScore[0]",A.getInningScore(0));
+        outState.putInt("A.inningScore[1]",A.getInningScore(1));
+        outState.putInt("A.inningScore[2]",A.getInningScore(2));
+        outState.putInt("A.inningScore[3]",A.getInningScore(3));
+        outState.putInt("A.inningScore[4]",A.getInningScore(4));
+        outState.putInt("A.inningScore[5]",A.getInningScore(5));
+        outState.putInt("A.inningScore[6]",A.getInningScore(6));
+        outState.putInt("A.inningScore[7]",A.getInningScore(7));
+        outState.putInt("A.inningScore[8]",A.getInningScore(8));
+        outState.putInt("B.inningScore[0]",B.getInningScore(0));
+        outState.putInt("B.inningScore[1]",B.getInningScore(1));
+        outState.putInt("B.inningScore[2]",B.getInningScore(2));
+        outState.putInt("B.inningScore[3]",B.getInningScore(3));
+        outState.putInt("B.inningScore[4]",B.getInningScore(4));
+        outState.putInt("B.inningScore[5]",B.getInningScore(5));
+        outState.putInt("B.inningScore[6]",B.getInningScore(6));
+        outState.putInt("B.inningScore[7]",B.getInningScore(7));
+        outState.putInt("B.inningScore[8]",B.getInningScore(8));
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null){
+            strikes = savedInstanceState.getInt("strikesSaved");
+            numberOfStrikes.setText(String.valueOf(strikes));
+            foulBall = savedInstanceState.getInt("foulBallSaved");
+            numberOfFoulBall.setText(String.valueOf(foulBall));
+            balls = savedInstanceState.getInt("ballsSaved");
+            numberOfBall.setText(String.valueOf(balls));
+            out = savedInstanceState.getInt("outSaved");
+            numberOfOut.setText(String.valueOf(out));
+            freeRunner = savedInstanceState.getInt("freeRunnerSaved");
+            runner = savedInstanceState.getInt("runnerSaved");
+            numberOfRunner.setText(String.valueOf(runner));
+            currentInning = savedInstanceState.getInt("currentInningSaved");
+            A.setOutTeam(savedInstanceState.getInt("outTeamASaved"));
+            B.setOutTeam(savedInstanceState.getInt("outTeamBSaved"));
+            A.setScoreTeam(savedInstanceState.getInt("TotalScoreASaved"));
+            totalScoreViewA.setText(String.valueOf(A.getScoreTeam()));
+            A.setInningScore(0,savedInstanceState.getInt("A.inningScore[0]"));
+            A.inningScoreView[0].setText(String.valueOf(A.getInningScore(0)));
+            A.setInningScore(1,savedInstanceState.getInt("A.inningScore[1]"));
+            A.inningScoreView[1].setText(String.valueOf(A.getInningScore(1)));
+            A.setInningScore(2,savedInstanceState.getInt("A.inningScore[2]"));
+            A.inningScoreView[2].setText(String.valueOf(A.getInningScore(2)));
+            A.setInningScore(3,savedInstanceState.getInt("A.inningScore[3]"));
+            A.inningScoreView[3].setText(String.valueOf(A.getInningScore(3)));
+            A.setInningScore(4,savedInstanceState.getInt("A.inningScore[4]"));
+            A.inningScoreView[4].setText(String.valueOf(A.getInningScore(4)));
+            A.setInningScore(5,savedInstanceState.getInt("A.inningScore[5]"));
+            A.inningScoreView[5].setText(String.valueOf(A.getInningScore(5)));
+            A.setInningScore(6,savedInstanceState.getInt("A.inningScore[6]"));
+            A.inningScoreView[6].setText(String.valueOf(A.getInningScore(6)));
+            A.setInningScore(7,savedInstanceState.getInt("A.inningScore[7]"));
+            A.inningScoreView[7].setText(String.valueOf(A.getInningScore(7)));
+            A.setInningScore(8,savedInstanceState.getInt("A.inningScore[8]"));
+            A.inningScoreView[8].setText(String.valueOf(A.getInningScore(8)));
+            B.setScoreTeam(savedInstanceState.getInt("TotalScoreBSaved"));
+            totalScoreViewB.setText(String.valueOf(B.getScoreTeam()));
+            B.setInningScore(0,savedInstanceState.getInt("B.inningScore[0]"));
+            B.inningScoreView[0].setText(String.valueOf(B.getInningScore(0)));
+            B.setInningScore(1,savedInstanceState.getInt("B.inningScore[1]"));
+            B.inningScoreView[1].setText(String.valueOf(B.getInningScore(1)));
+            B.setInningScore(2,savedInstanceState.getInt("B.inningScore[2]"));
+            B.inningScoreView[2].setText(String.valueOf(B.getInningScore(2)));
+            B.setInningScore(3,savedInstanceState.getInt("B.inningScore[3]"));
+            B.inningScoreView[3].setText(String.valueOf(B.getInningScore(3)));
+            B.setInningScore(4,savedInstanceState.getInt("B.inningScore[4]"));
+            B.inningScoreView[4].setText(String.valueOf(B.getInningScore(4)));
+            B.setInningScore(5,savedInstanceState.getInt("B.inningScore[5]"));
+            B.inningScoreView[5].setText(String.valueOf(B.getInningScore(5)));
+            B.setInningScore(6,savedInstanceState.getInt("B.inningScore[6]"));
+            B.inningScoreView[6].setText(String.valueOf(B.getInningScore(6)));
+            B.setInningScore(7,savedInstanceState.getInt("B.inningScore[7]"));
+            B.inningScoreView[7].setText(String.valueOf(B.getInningScore(7)));
+            B.setInningScore(8,savedInstanceState.getInt("B.inningScore[8]"));
+            B.inningScoreView[8].setText(String.valueOf(B.getInningScore(8)));
+
+        }
     }
 
     protected void createSoundPool() {
@@ -239,7 +333,12 @@ public class MainActivity extends AppCompatActivity {
             calculateTotalScore();
             displayTotalScore(A.getScoreTeam(), totalScoreViewA);
         }
-
+        strikes =0;
+        displayStrikes(strikes,numberOfStrikes);
+        foulBall=0;
+        displayFoulball(foulBall, numberOfFoulBall);
+        balls =0;
+        displayBalls(balls, numberOfBall);
         runner = 0;
         displayRunners(runner, numberOfRunner);
         freeRunner = 0;
@@ -512,6 +611,8 @@ public class MainActivity extends AppCompatActivity {
         displayRunners(runner, numberOfRunner);
         strikes = 0;
         displayStrikes(strikes, numberOfStrikes);
+        foulBall = 0;
+        displayFoulball(foulBall, numberOfFoulBall);
         balls = 0;
         displayBalls(balls, numberOfBall);
         if (freeRunner == 4) {

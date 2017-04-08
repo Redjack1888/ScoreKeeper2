@@ -1,0 +1,101 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="total_score">
+        <item name="android:text">@string/zero</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/fontSize5</item>
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="team_label">
+        <item name="android:textSize">@dimen/fontSize4</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">@dimen/size4</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+
+    </style>
+
+
+    <style name="innings_teams">
+        <item name="android:text">@string/zero</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:textSize">@dimen/fontSize2</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="innings_label">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:textSize">@dimen/fontSize2</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="faults_label">
+        <item name="android:textSize">@dimen/fontSize2</item>
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_margin">@dimen/size1</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="teams_label">
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/fontSize1</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:padding">@dimen/sizeAB</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="button18">
+    <item name="android:textSize">@dimen/fontSize3</item>
+    <item name="android:textStyle">normal|bold</item>
+    <item name="android:layout_width">@dimen/size5</item>
+    <item name="android:padding">@dimen/size2</item>
+    </style>
+
+    <style name="button_small">
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:layout_marginBottom">@dimen/size3</item>
+        <item name="android:padding">@dimen/size3</item>
+        <item name="android:textSize">@dimen/fontSize2</item>
+    </style>
+
+    <style name="faults_numbers">
+        <item name="android:layout_margin">@dimen/size1</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:paddingLeft">@dimen/size2</item>
+        <item name="android:paddingRight">@dimen/size2</item>
+        <item name="android:text">@string/zero</item>
+        <item name="android:textSize">@dimen/fontSize3</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textStyle">normal|bold</item>
+    </style>
+
+    <style name="score_label">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/fontSize4</item>
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="button_big">
+        <item name="android:textSize">@dimen/fontSize4</item>
+        <item name="android:textStyle">normal|bold</item>
+        <item name="android:padding">@dimen/size3</item>
+    </style>
+</resources>
