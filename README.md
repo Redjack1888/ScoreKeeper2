@@ -21,13 +21,13 @@ This project is about combining various ideas and skills we’ve been practicing
 <tbody>
 <tr>
 <td><img src="https://github.com/Redjack1888/ScoreKeeper2/blob/master/assets/Screenshot_1583956575.png" width="250" height="444" /></td>
-<td>2</td>
-<td>3</td>
+<td><img src="https://github.com/Redjack1888/ScoreKeeper2/blob/master/assets/Screenshot_1583957143.png" width="250" height="444" /></td>
+<td><img src="https://github.com/Redjack1888/ScoreKeeper2/blob/master/assets/Screenshot_1583956643.png" width="250" height="444" /></td>
 </tr>
 <tr>
-<td>4</td>
-<td>5</td>
-<td>6</td>
+<td><img src="https://github.com/Redjack1888/ScoreKeeper2/blob/master/assets/Screenshot_1583956756.png" width="250" height="444" /></td>
+<td><img src="https://github.com/Redjack1888/ScoreKeeper2/blob/master/assets/Screenshot_1583956769.png" width="250" height="444" /></td>
+<td></td>
 </tr>
 </tbody>
 </table>
