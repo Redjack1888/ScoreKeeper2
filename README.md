@@ -1,4 +1,6 @@
 # ScoreKeeper2
+![Cover](/assets/smartmockups_k7nrecto.jpg)
+
 Project 2 for "Android Basics Scolarship" by Udacity". Baseball Score Keeper Version 2 (with POJO)
 
 ## Project Overview
@@ -13,3 +15,20 @@ This project is about combining various ideas and skills we’ve been practicing
 * Updating views
 * Properly scoping variables
 * Finding views by their ID
+
+## Screenshots
+<table style="margin-left: auto; margin-right: auto;" border="0">
+<tbody>
+<tr>
+<td><img src="https://github.com/Redjack1888/ScoreKeeper2/blob/master/assets/Screenshot_1583956575.png" width="250" height="444" /></td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+
